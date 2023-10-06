@@ -1,0 +1,10 @@
+{
+  "keywordFileContentHash": "FA351C326CB5CCA33D1BA52521ED38B7",
+  "keywordClasses": [
+    {
+      "name": "example.ExampleStepDefinitions",
+      "keywordMethods": []
+    }
+  ],
+  "javadocParsed": true
+}
