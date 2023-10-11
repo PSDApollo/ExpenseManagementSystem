@@ -21,7 +21,7 @@ public class ExpenseService {
 		return expenses;
 	}
 
-	public Optional<Expense> getAnExpense(String id)
+	public Optional<Expense> getAnExpense(long id)
 	{
 		return expenseRepo.findById(id);
 	}
@@ -31,12 +31,12 @@ public class ExpenseService {
 
 	}
 
-	public void updateExpense(String id, Expense expense) {
+	public void updateExpense(Long id, Expense expense) {
 		expenseRepo.save(expense);
 
 	}
 
-	public void deleteExpense(String id) {
+	public void deleteExpense(Long id) {
 		expenseRepo.deleteById(id);
 
 	}

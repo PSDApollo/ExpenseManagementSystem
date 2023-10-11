@@ -25,7 +25,7 @@ public class ExpenseController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET, value = "/expenses/{id}")
-	public Optional<Expense> getAnExpense(@PathVariable String id)
+	public Optional<Expense> getAnExpense(@PathVariable long id)
 	{
 		return expenseService.getAnExpense(id);
 	}
@@ -37,12 +37,12 @@ public class ExpenseController {
 	}
 
 	@RequestMapping(method = RequestMethod.PUT, value="/expenses/{id}")
-	public void updateExpense(@PathVariable String id, @RequestBody Expense expense)
+	public void updateExpense(@PathVariable Long id, @RequestBody Expense expense)
 	{
 		expenseService.updateExpense(id, expense);
 	}
 	@RequestMapping(method = RequestMethod.DELETE, value="/expenses/{id}")
-	public void DeleteExpense(@PathVariable String id)
+	public void DeleteExpense(@PathVariable Long id)
 	{
 		expenseService.deleteExpense(id);
 	}
