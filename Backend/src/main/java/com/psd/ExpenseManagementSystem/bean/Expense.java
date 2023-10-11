@@ -1,8 +1,6 @@
 package com.psd.ExpenseManagementSystem.bean;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -10,7 +8,8 @@ import java.util.Date;
 public class Expense {
 
 	@Id
-	private String id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private  long id;
 	private String name;
 
 	private String description;
@@ -22,7 +21,7 @@ public class Expense {
 	public Expense() {
 
 	}
-	public Expense(String id, String name, String description, Integer amount, Date expense_date) {
+	public Expense(long id, String name, String description, Integer amount, Date expense_date) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -30,10 +29,10 @@ public class Expense {
 		this.amount = amount;
 		this.description = description;
 	}
-	public String getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public String getName() {
