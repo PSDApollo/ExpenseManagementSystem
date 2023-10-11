@@ -1,6 +1,7 @@
 package com.psd.ExpenseManagementSystem.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.psd.ExpenseManagementSystem.bean.Expense;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,12 @@ public class ExpenseController {
 	public List<Expense> getAllExpenses()
 	{
 		return expenseService.getAllExpenses();
+	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/expenses/{id}")
+	public Optional<Expense> getAnExpense(@PathVariable String id)
+	{
+		return expenseService.getAnExpense(id);
 	}
 
 	@RequestMapping(method = RequestMethod.POST, value="/expenses")

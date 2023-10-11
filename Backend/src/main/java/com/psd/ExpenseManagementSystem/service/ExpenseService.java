@@ -2,6 +2,7 @@ package com.psd.ExpenseManagementSystem.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import com.psd.ExpenseManagementSystem.bean.Expense;
 import com.psd.ExpenseManagementSystem.repository.ExpenseRepository;
@@ -18,6 +19,11 @@ public class ExpenseService {
 		List<Expense> expenses = new ArrayList<>();
 		expenseRepo.findAll().forEach(expenses::add);
 		return expenses;
+	}
+
+	public Optional<Expense> getAnExpense(String id)
+	{
+		return expenseRepo.findById(id);
 	}
 
 	public void addExpense(Expense expense) {
