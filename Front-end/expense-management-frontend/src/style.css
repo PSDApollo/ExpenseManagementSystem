@@ -1,0 +1,160 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: wheat;
+  background-image: url('./images/wp11960908-peach-laptop-wallpapers.jpg'); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: black; 
+  font-size: 22px;
+}
+
+.team-name {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: #333; 
+}
+
+
+.centered-div {
+  width: 400px;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: lightyellow;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  background-image: url('/images/Bg1.jpg');
+  background-size: cover; 
+  background-repeat: no-repeat; 
+}
+
+
+.centered-div h1 {
+  font-size: 24px; 
+}
+
+.centered-div p {
+  font-size: 16px; 
+}
+
+.centered-div a {
+  text-decoration: none;
+  color: blue; 
+  margin-top: 80px;
+  display: block;
+}
+
+.centered-div a:hover {
+  color: darkblue;
+}
+
+
+
+
+.expense-add {
+  width: 500px; 
+  height: 550px;
+  margin: 0 auto; 
+  margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  padding: 5px;
+  text-align: center;
+  background-color: grey;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.expense-add h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  padding: 10px 0;
+  color: #333;
+}
+
+.expense-add form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.expense-add label {
+  display: block;
+  text-align: left;
+  color: #333;
+  width: 100%; 
+  margin-bottom: 10px; 
+}
+
+.expense-add input[type="text"],
+.expense-add input[type="number"] {
+  width: 100%;
+  padding: 5px;
+  margin: 5px 0;
+  border: 1px solid #333;
+  border-radius: 5px;
+}
+
+.expense-add button {
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 20px; 
+}
+
+.expense-add button:hover {
+  background-color: #111;
+}
+
+
+.expense-add label {
+  display: block;
+  text-align: left;
+  color: #333;
+  width: 100%; 
+  margin-bottom: 10px; 
+}
+
+.expense-add input[type="text"],
+.expense-add input[type="number"],
+.expense-add input[type="date"] {
+  width: 100%;
+  padding: 5px;
+  margin: 5px 0;
+  border: 1px solid #333;
+  border-radius: 5px;
+}
+
+
+.expense-add button {
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 20px; 
+}
+
+.expense-add button:hover {
+  background-color: #111;
+}
+
+
+
+
