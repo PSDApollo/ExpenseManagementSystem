@@ -1,10 +1,10 @@
 {
-  "keywordFileContentHash": "99D45904A16C4ED99089207407CA7552",
+  "keywordFileContentHash": "4D881049FD56D03919D6EB4E7A70E955",
   "keywordClasses": [
     {
       "name": "ems.Homepage",
       "keywordMethods": []
     }
   ],
-  "javadocParsed": false
+  "javadocParsed": true
 }

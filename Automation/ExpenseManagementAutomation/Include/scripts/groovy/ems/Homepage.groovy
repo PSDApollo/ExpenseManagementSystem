@@ -88,7 +88,6 @@ class Homepage {
 	@When("I enter {string} as the expense name")
 	public void i_enter_as_the_expense_name(String string) {
 		WebUI.sendKeys(findTestObject('Object Repository/EMS/ExpensePage/field_name'), string)
-		
 	}
 
 	@When("I enter {string} as the expense description")
