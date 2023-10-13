@@ -1,2 +1,3 @@
 # ExpenseManagementSystem
-Team of 4
+
+Required Installations: React, Springboot, PostGRE, Katalon Studio
