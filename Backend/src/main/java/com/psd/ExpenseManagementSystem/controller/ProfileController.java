@@ -12,9 +12,16 @@ public class ProfileController {
 
 
     @RequestMapping(method = RequestMethod.POST, value="/register")
-    public void registerUser(@RequestBody Profile user)
+    public Long registerUser(@RequestBody Profile user)
     {
-        userService.registerUser(user);
+        Long id = userService.registerUser(user);
+        return id;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value="/login")
+    public String loginUser(@RequestBody Profile user)
+    {
+        return userService.loginUser(user);
     }
 
     @GetMapping("/")

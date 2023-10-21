@@ -9,15 +9,16 @@ public class Profile {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  long id;
 
-    public String getUser_name() {
-        return user_name;
+
+    public String getEmail() {
+        return email;
     }
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    private String user_name;
+    private String email;
 
     public String getPassword() {
         return password;
@@ -33,10 +34,10 @@ public class Profile {
     public Profile() {
 
     }
-    public Profile(long id, String user_name, String password) {
+    public Profile(long id, String email, String password) {
         super();
         this.id = id;
-        this.user_name = user_name;
+        this.email = email;
         this.password = password;
     }
     public long getId() {

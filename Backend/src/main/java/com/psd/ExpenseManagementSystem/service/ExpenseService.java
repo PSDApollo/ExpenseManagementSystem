@@ -27,7 +27,7 @@ public class ExpenseService {
 	}
 
 	public void addExpense(Expense expense) {
-		expenseRepo.save(expense);
+				expenseRepo.save(expense);
 
 	}
 
