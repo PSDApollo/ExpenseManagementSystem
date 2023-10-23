@@ -7,6 +7,7 @@ import java.util.Optional;
 
 import com.psd.ExpenseManagementSystem.bean.Expense;
 import com.psd.ExpenseManagementSystem.repository.ExpenseRepository;
+import com.psd.ExpenseManagementSystem.repository.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,12 @@ public class ExpenseService {
 	@Autowired
 	public ExpenseRepository expenseRepo;
 
+	@Autowired
+	ProfileRepository userRepo;
+
+	@Autowired
+	private HttpServletRequest request;
+
 	public List<Expense> getAllExpenses()
 	{
 		List<Expense> expenses = new ArrayList<>();
@@ -24,12 +31,28 @@ public class ExpenseService {
 		return expenses;
 	}
 
+	public String getHeaders(){
+		String authorizationHeader = request.getHeader("Authorization");
+
+		return authorizationHeader;
+	}
+
 	public Optional<Expense> getAnExpense(long id)
 	{
 		return expenseRepo.findById(id);
 	}
 
+	public long getProfileIdFromHeader(){
+		byte[] decodedBytes = Base64.getDecoder().decode(getHeaders());
+		String decodedString = new String(decodedBytes);
+		decodedString = decodedString.split(":")[0];
+		long profile_id = userRepo.findByEmail(decodedString).getId();
+		return profile_id;
+	}
+
 	public void addExpense(Expense expense) {
+		long profile_id = getProfileIdFromHeader();
+		expense.setProfile_id(profile_id);
 		expenseRepo.save(expense);
 
 	}
