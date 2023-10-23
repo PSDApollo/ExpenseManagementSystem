@@ -6,6 +6,7 @@ import com.psd.ExpenseManagementSystem.repository.ProfileRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Base64;
 import java.util.Objects;
 
 @Service
@@ -32,7 +33,8 @@ public class ProfileService {
         if (user1 != null) {
             String user1_password = user1.getPassword();
             if(passwordEncoder.matches(user.getPassword(), user1_password)) {
-                return " Valid User ";
+                String temp = user.getEmail() + ":" + user.getPassword();
+                return Base64.getEncoder().encodeToString(temp.getBytes());
             }
             else{
                 return "Incorrect Email or password";
