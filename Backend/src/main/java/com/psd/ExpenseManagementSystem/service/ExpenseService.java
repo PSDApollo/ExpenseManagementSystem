@@ -1,6 +1,7 @@
 package com.psd.ExpenseManagementSystem.service;
 
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 
@@ -8,6 +9,8 @@ import com.psd.ExpenseManagementSystem.bean.Expense;
 import com.psd.ExpenseManagementSystem.repository.ExpenseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Service
 public class ExpenseService {
@@ -27,7 +30,7 @@ public class ExpenseService {
 	}
 
 	public void addExpense(Expense expense) {
-				expenseRepo.save(expense);
+		expenseRepo.save(expense);
 
 	}
 

@@ -21,7 +21,8 @@ public class ProfileService {
         Profile profile = new Profile(
                 user.getId(),
                 user.getEmail(),
-                this.passwordEncoder.encode(user.getPassword())
+                this.passwordEncoder.encode(user.getPassword()),
+                user.getProfile_name()
         );
         userRepo.save(profile);
         return userRepo.findByEmail(user.getEmail()).getId();

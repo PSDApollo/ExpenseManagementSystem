@@ -18,16 +18,27 @@ public class Expense {
 
 	private Date expense_date;
 
+	public long getProfile_id() {
+		return profile_id;
+	}
+
+	public void setProfile_id(long profile_id) {
+		this.profile_id = profile_id;
+	}
+
+	private long profile_id;
+
 	public Expense() {
 
 	}
-	public Expense(long id, String name, String description, Integer amount, Date expense_date) {
+	public Expense(long id, String name, String description, Integer amount, Date expense_date, long profile_id) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.expense_date = expense_date;
 		this.amount = amount;
 		this.description = description;
+		this.profile_id = profile_id;
 	}
 	public long getId() {
 		return id;

@@ -20,6 +20,8 @@ public class Profile {
 
     private String email;
 
+    private String profile_name;
+
     public String getPassword() {
         return password;
     }
@@ -34,11 +36,21 @@ public class Profile {
     public Profile() {
 
     }
-    public Profile(long id, String email, String password) {
+
+    public String getProfile_name() {
+        return profile_name;
+    }
+
+    public void setProfile_name(String profile_name) {
+        this.profile_name = profile_name;
+    }
+
+    public Profile(long id, String email, String password, String profile_name) {
         super();
         this.id = id;
         this.email = email;
         this.password = password;
+        this.profile_name = profile_name;
     }
     public long getId() {
         return id;
