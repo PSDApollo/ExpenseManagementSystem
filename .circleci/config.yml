@@ -25,4 +25,4 @@ workflows:
       - katalon-studio/run:
           version: latest
           command_arguments: >-
-            -browserType='Chrome' -retry=0 -statusDelay=15 -testSuitePath='..\Automation\ExpenseManagementAutomation\Test/ Suites\Example\ExampleTestSuite'
+            -browserType='Chrome' -retry=0 -apiKey="54900a12-b6cb-4be0-baef-f858be6fb254" -statusDelay=15 -testSuitePath='..\Automation\ExpenseManagementAutomation\Test/ Suites\Example\ExampleTestSuite'
