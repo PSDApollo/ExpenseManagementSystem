@@ -15,6 +15,8 @@
 #     jobs:
 #       - hello-job
 
+variables:
+  KATALON_API_KEY: "54900a12-b6cb-4be0-baef-f858be6fb254"
 
 version: 2.1
 orbs:
