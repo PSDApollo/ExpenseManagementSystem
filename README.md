@@ -30,7 +30,6 @@
 3. Below is the postman collection for our application. 
   https://sluedu-my.sharepoint.com/:u:/g/personal/saiteja_juluru_slu_edu/EcLUQtz1D39KmbO_auUb8cABs40HQytZelDMsV8CW9U7bQ?e=38WzNw
 
-  CircleCI added
 
 
 
