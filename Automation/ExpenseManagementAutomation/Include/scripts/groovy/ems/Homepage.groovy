@@ -104,4 +104,64 @@ class Homepage {
 	public void i_can_see_the_expense_with_as_amount_displayed_in_the_list(String name, String amount) {
 		WebUI.verifyElementVisible(findTestObject('Object Repository/EMS/HomePage/table_item_expense', ['name' : name, 'amount' : amount]))
 	}
+	
+	@Then("I can see the login page")
+	public void i_can_see_the_login_page() {
+		
+		
+	}
+	
+	@Then("I can see the title of login page")
+	public void i_can_see_the_title_of_login_page() {
+		
+		
+	}
+	
+	@Then("I can see user name field")
+	public void i_can_see_user_name_field() {
+		
+		
+	}
+	
+	@Then("I can see password field")
+	public void i_can_see_password_field() {
+		
+		
+	}
+	
+	@Then("I can see the submit button on login page")
+	public void i_can_see_the_submit_button_on_login_page() {
+		
+		
+	}
+	
+	@When("I enter {string} as the passsword")
+	public void i_enter_as_the_passsword(String string) {
+		
+		
+	}
+	
+	@When("I click on submit on login page")
+	public void i_click_on_submit_on_login_page() {
+		
+		
+	}
+	
+	@Then("I can see the invalid password message")
+	public void i_can_see_the_invalid_password_message() {
+		
+		
+	}
+	
+	@When("I enter valid username")
+	public void i_enter_valid_username() {
+		
+		
+	}
+	
+	@When("I enter valid password")
+	public void i_enter_valid_password() {
+		
+		
+	}
 }

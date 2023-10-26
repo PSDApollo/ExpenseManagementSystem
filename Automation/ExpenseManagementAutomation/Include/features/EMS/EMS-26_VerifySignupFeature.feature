@@ -1,9 +1,16 @@
-Feature: As a user of this system,
-  I want to add an expense, so that I can manage my expenses.
+Feature: As a User, I want to signup, So that I can access the expenses based on my account
+
   Scenario: Verify if homepage is available
     Given I open the EMS Application
     Then I can see the homepage
-  Scenario: Verify I can add a new expense
+
+  Scenario: Verify if basic elements are available
+    Given I can see the homepage
+    Then I can see the title of homepage
+    And I can see the month of homepage
+    And I can see the list box for expenses
+
+  Scenario: Verify I can see new expense in homepage
     Given I can see the homepage
     When I click on add expense
     Then I can see add expense page
