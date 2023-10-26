@@ -4,7 +4,7 @@ Feature: As a User, I want to login, So that I can access the expenses based on 
     Given I open the EMS Application
     Then I can see the login page
     And I can see Create an account button
-    When I click on "Create an account" button
+    When I click on Create an account button
     And I can see the title of sign up page
 
   Scenario: Verify fields in sign up page
@@ -19,8 +19,8 @@ Feature: As a User, I want to login, So that I can access the expenses based on 
     When I enter "abcd" as the passsword
     And I click on submit on login page
     Then I can see the invalid password message
-    
-    Scenario: Verify valid sign up
+
+  Scenario: Verify valid sign up
     Given I can see the sign up page
     When I enter valid username
     And I enter valid password

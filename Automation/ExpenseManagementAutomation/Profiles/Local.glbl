@@ -19,4 +19,9 @@
       <initValue>'ExpenseManager@123'</initValue>
       <name>password</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'expensemanager@example.com'</initValue>
+      <name>email</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>
