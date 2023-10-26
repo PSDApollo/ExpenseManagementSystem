@@ -112,22 +112,22 @@ class Homepage {
 
 	@Then("I can see the title of login page")
 	public void i_can_see_the_title_of_login_page() {
-		WebUI.verifyElementVisible(findTestObject('Object Repository/EMS/HomePage/label_title'))
+		WebUI.verifyElementVisible(findTestObject('Object Repository/EMS/loginPage/title'))
 	}
 
 	@Then("I can see user name field")
 	public void i_can_see_user_name_field() {
-		WebUI.verifyElementVisible(findTestObject('Object Repository/EMS/HomePage/label_title'))
+		WebUI.verifyElementVisible(findTestObject('Object Repository/EMS/loginPage/userName'))
 	}
 
 	@Then("I can see password field")
 	public void i_can_see_password_field() {
-		WebUI.verifyElementVisible(findTestObject('Object Repository/EMS/HomePage/label_title'))
+		WebUI.verifyElementVisible(findTestObject('Object Repository/EMS/loginPage/password'))
 	}
 
 	@Then("I can see the submit button on login page")
 	public void i_can_see_the_submit_button_on_login_page() {
-		WebUI.verifyElementVisible(findTestObject('Object Repository/EMS/HomePage/label_title'))
+		WebUI.verifyElementVisible(findTestObject('Object Repository/EMS/loginPage/signIn'))
 	}
 
 	@When("I enter {string} as the passsword")
@@ -152,12 +152,12 @@ class Homepage {
 
 	@When("I enter valid password")
 	public void i_enter_valid_password() {
-		WebUI.sendKeys(findTestObject('Object Repository/EMS/ExpensePage/field_amount'), GlobalVariable.password)
+		WebUI.sendKeys(findTestObject('Object Repository/EMS/loginPage/password'), GlobalVariable.password)
 	}
 
 	@Then("I can see Create an account button")
 	public void i_can_see_Create_an_account_button() {
-		WebUI.verifyElementVisible(findTestObject('Object Repository/EMS/HomePage/label_title'))
+		WebUI.verifyElementVisible(findTestObject('Object Repository/EMS/loginPage/signup'))
 	}
 
 	@When("I click on Create an account button")
@@ -172,26 +172,26 @@ class Homepage {
 
 	@Given("I can see the sign up page")
 	public void i_can_see_the_sign_up_page() {
-		WebUI.verifyElementVisible(findTestObject('Object Repository/EMS/HomePage/label_title'))
+		WebUI.verifyElementVisible(findTestObject('Object Repository/EMS/signupPage/title'))
 	}
 
 	@Then("I can see email field")
 	public void i_can_see_email_field() {
-		WebUI.verifyElementVisible(findTestObject('Object Repository/EMS/HomePage/label_title'))
+		WebUI.verifyElementVisible(findTestObject('Object Repository/EMS/signupPage/email'))
 	}
 
 	@Then("I can see the create account button on sign up page")
 	public void i_can_see_the_create_account_button_on_sign_up_page() {
-		WebUI.verifyElementVisible(findTestObject('Object Repository/EMS/HomePage/label_title'))
+		WebUI.verifyElementVisible(findTestObject('Object Repository/EMS/signupPage/Login'))
 	}
 
 	@When("I enter valid email")
 	public void i_enter_valid_email() {
-		WebUI.sendKeys(findTestObject('Object Repository/EMS/ExpensePage/field_amount'), GlobalVariable.email)
+		WebUI.sendKeys(findTestObject('Object Repository/EMS/signupPage/email'), GlobalVariable.email)
 	}
 
 	@When("I click on submit on sign up page")
 	public void i_click_on_submit_on_sign_up_page() {
-		WebUI.click(findTestObject('Object Repository/EMS/HomePage/button_addExpense'))
+		WebUI.click(findTestObject('Object Repository/EMS/signupPage/signUp'))
 	}
 }
