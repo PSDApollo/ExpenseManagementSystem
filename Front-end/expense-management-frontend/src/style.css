@@ -31,7 +31,7 @@ body {
   border-radius: 10px;
   padding: 20px;
   text-align: center;
-  background-image: url('/images/Bg1.jpg');
+  background-image: url('./images/Bg1.jpg');
   background-size: cover; 
   background-repeat: no-repeat; 
 }
@@ -155,6 +155,32 @@ body {
   background-color: #111;
 }
 
+.chart-container {
+  width: 900px;
+  height: 550px;
+  padding: 10px;
+  margin: 10px;
+}
 
+.centered-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
 
+.centered-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.chart-container {
+  width: 400px;
+  height: 200px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+}
 

@@ -5,6 +5,7 @@ import './App.css';
 import ExpenseList from './components/ExpenseList';
 import AddExpense from './components/AddExpense';
 import Home from './components/Home'; 
+import Dashboard from './components/Dashboard';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/add-expense" element={<AddExpense />} />
+          <Route path="/dashboard" element={<Dashboard/>} />
           <Route path="/" element={<Home />} />
         </Routes>
       </div>
