@@ -6,6 +6,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin: auto;
   background-color: #ffa500;
   background-image: url('images/austin-schmid-JCOlqpfxsKo-unsplash.jpg');
   background-size: cover;
@@ -14,6 +15,7 @@ body {
 
 .container {
   display: flex;
+  height: 85vh;
   border-radius: 20px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -130,6 +132,17 @@ body {
   opacity: 0.8;
 }
 
+.username {
+  width: 328px;
+  border: none;
+  margin: 5px 0; 
+}
+
+.password {
+  width: 328px; 
+}
+
+
 @media (max-width: 768px) {
   .container {
       flex-direction: column;
@@ -144,4 +157,19 @@ body {
 
 .google-login:hover, .facebook-login:hover {
   transform: scale(1.1);
+}
+
+/* Styling for signup button*/
+.signup-text {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.signup-text a {
+  color: #007bff; 
+  text-decoration: none;
+}
+
+.signup-text a:hover {
+  text-decoration: underline;
 }

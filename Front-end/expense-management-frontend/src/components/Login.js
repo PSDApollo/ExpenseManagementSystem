@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../loginstyle.css';
 import expenseManagementImage from '../images/naassom-azevedo-Q_Sei-TqSlc-unsplash.jpg';
 
@@ -43,7 +44,7 @@ function Login() {
     return (
         <div className="container">
             <div className="image-section">
-                <img src={expenseManagementImage} alt="Expense Management Image" />
+                <img src={expenseManagementImage} alt="Expense Management" />
                 <div className="tagline">Plan. Track. Thrive.<br />Expense Management the Apollo Way.</div>
             </div>
             <div className="form-section">
@@ -52,17 +53,22 @@ function Login() {
                 <form onSubmit={handleSubmit}>
                     <input 
                         type="text" 
+                        class = "username"
                         name="username" 
                         placeholder="Enter username" 
                         onChange={handleInputChange} 
                     />
                     <input 
                         type="password" 
+                        class = "password"
                         name="password" 
                         placeholder="Password" 
                         onChange={handleInputChange} 
                     />
                     <button type="submit">Sign In</button>
+                    <div className="signup-text">
+                    Don't have an account? <Link to="/signup">Signup</Link>
+                    </div>
                 </form>
             </div>
         </div>
