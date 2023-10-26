@@ -10,6 +10,7 @@ Feature: As a User, I want to login, So that I can access the expenses based on 
     Then I can see user name field
     And I can see password field
     And I can see the submit button on login page
+    And I can see Create an account button
 
   Scenario: Verify invalid password message
     Given I can see the login page

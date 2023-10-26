@@ -164,4 +164,52 @@ class Homepage {
 		
 		
 	}
+	
+	@Then("I can see Create an account button")
+	public void i_can_see_Create_an_account_button() {
+		
+		
+	}
+	
+	@When("I click on {string} button")
+	public void i_click_on_button(String string) {
+		
+		
+	}
+	
+	@When("I can see the title of sign up page")
+	public void i_can_see_the_title_of_sign_up_page() {
+		
+		
+	}
+	
+	@Given("I can see the sign up page")
+	public void i_can_see_the_sign_up_page() {
+		
+		
+	}
+	
+	@Then("I can see email field")
+	public void i_can_see_email_field() {
+		
+		
+	}
+	
+	@Then("I can see the create account button on sign up page")
+	public void i_can_see_the_create_account_button_on_sign_up_page() {
+		
+		
+	}
+	
+	@When("I enter valid email")
+	public void i_enter_valid_email() {
+		
+		
+	}
+	
+	@When("I click on submit on sign up page")
+	public void i_click_on_submit_on_sign_up_page() {
+		
+		
+	}
 }
