@@ -89,13 +89,13 @@ const BarChart = () => {
     }
     return color;
   };
-
+  
   return (
     <div>
       <h2>{getCurrentMonthExpenses()}</h2>
       <p>Total Expenses: ${totalExpenses}</p>
       <p>{highestExpenseDay}</p>
-      <canvas ref={chartRef} width="800" height="400"></canvas>
+      <canvas role="img" id="dashboardCanvas" ref={chartRef} width="800" height="400"></canvas>
     </div>
   );
 };

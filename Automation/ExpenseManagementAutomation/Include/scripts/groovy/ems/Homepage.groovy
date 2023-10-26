@@ -192,5 +192,6 @@ class Homepage {
 
 	@When("I click on submit on sign up page")
 	public void i_click_on_submit_on_sign_up_page() {
+		WebUI.click(findTestObject('Object Repository/EMS/HomePage/button_addExpense'))
 	}
 }
