@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import '../expenseliststyle.css'; // Import your CSS file for styling
+import '../expenseliststyle.css'; 
  
 function ExpenseList() {
   const [expenses, setExpenses] = useState([]);
  
   useEffect(() => {
     console.log('Fetching expenses...');
-    const key = localStorage.getItem('myKey'); // Get the key from local storage
+    const key = localStorage.getItem('myKey'); 
  
     if (key) {
       fetch('https://15af-2600-6c40-75f0-ffc0-dc90-95b4-5282-a6e0.ngrok-free.app/expenses', {
