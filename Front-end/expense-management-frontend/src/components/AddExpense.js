@@ -26,12 +26,13 @@ function AddExpense() {
     };
 
     fetch('https://3390-2600-6c40-7500-11f5-3c2f-7679-1906-59fb.ngrok-free.app/expenses', {
-      method: 'POST',
-      headers: {
+    method: 'POST',
+    headers: {
         'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newExpense),
-    })
+        'Authorization': localStorage.getItem('userKey') // Send the user key in headers
+    },
+    body: JSON.stringify(newExpense),
+})
       .then((response) => {
         if (response.ok) {
           console.log('Expense added successfully.');
