@@ -35,7 +35,6 @@ function AddExpense() {
       .then((response) => {
         if (response.ok) {
           console.log('Expense added successfully.');
-          // Show a success message using window.alert
           window.alert('Expense added successfully.');
           history('/');
         } else {
