@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../dashboardstyle.css';  
-import BarChart from './BarChart';
 function Dashboard() {
   return (
       <div className="dashboard-container">
