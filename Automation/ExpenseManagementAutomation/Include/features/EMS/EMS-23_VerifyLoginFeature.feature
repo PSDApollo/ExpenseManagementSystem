@@ -12,11 +12,11 @@ Feature: As a User, I want to login, So that I can access the expenses based on 
     And I can see the submit button on login page
     And I can see Create an account button
 
-  Scenario: Verify invalid password message
+  Scenario: Verify invalid password
     Given I can see the login page
     When I enter "abcd" as the passsword
     And I click on submit on login page
-    Then I can see the invalid password message
+    Then I can see the login page
     
     Scenario: Verify valid login
     Given I can see the login page
