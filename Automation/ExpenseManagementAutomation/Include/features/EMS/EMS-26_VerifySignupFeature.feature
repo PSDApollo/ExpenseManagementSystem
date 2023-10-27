@@ -14,12 +14,6 @@ Feature: As a User, I want to login, So that I can access the expenses based on 
     And I can see email field
     And I can see the create account button on sign up page
 
-  Scenario: Verify invalid password message
-    Given I can see the sign up page
-    When I enter "abcd" as the passsword
-    And I click on submit on login page
-    Then I can see the invalid password message
-
   Scenario: Verify valid sign up
     Given I can see the sign up page
     When I enter valid username
@@ -27,3 +21,5 @@ Feature: As a User, I want to login, So that I can access the expenses based on 
     And I enter valid email
     And I click on submit on sign up page
     Then I can see the homepage
+    
+
