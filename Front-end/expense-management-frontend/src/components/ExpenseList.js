@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from 'react';
-
+ 
 function ExpenseList() {
   const [expenses, setExpenses] = useState([]);
-
+ 
   useEffect(() => {
     console.log('Fetching expenses...');
-    fetch('https://099b-2600-6c40-7500-11f5-3c2f-7679-1906-59fb.ngrok-free.app/expenses')
-      .then((response) => {
-        if (response.ok) {
-          console.log('Successfully fetched expenses.');
-          return response.json();
-        } else {
-          throw new Error('Failed to fetch expenses.');
-        }
-      })
+    fetch('https://15af-2600-6c40-75f0-ffc0-dc90-95b4-5282-a6e0.ngrok-free.app/expenses', {
+      origin: 'http://localhost:3000/',
+    headers: {
+        'Authorization': localStorage.getItem('userKey') // Send the user key in headers
+    }
+})
       .then((data) => {
         console.log('Data received:', data);
         setExpenses(data);
@@ -22,7 +19,7 @@ function ExpenseList() {
         console.error('Error fetching expenses:', error);
       });
   }, []);
-
+ 
   return (
     <div>
       <h1>Expense List</h1>
@@ -36,5 +33,6 @@ function ExpenseList() {
     </div>
   );
 }
-
+ 
 export default ExpenseList;
+ 
