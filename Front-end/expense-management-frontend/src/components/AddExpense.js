@@ -29,7 +29,7 @@ function AddExpense() {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
-        'Authorization': localStorage.getItem('userKey') // Send the user key in headers
+        'Authorization': localStorage.getItem('userKey') 
     },
     body: JSON.stringify(newExpense),
 })
