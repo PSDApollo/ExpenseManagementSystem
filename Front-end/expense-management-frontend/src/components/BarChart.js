@@ -6,13 +6,45 @@ const BarChart = () => {
   const chartInstanceRef = useRef(null); // Store the chart instance
   const [totalExpenses, setTotalExpenses] = useState(0);
   const [highestExpenseDay, setHighestExpenseDay] = useState('');
+  const [expenses, setExpenses] = useState([]);
 
   const getCurrentMonthExpenses = () => {
     const currentMonth = new Date().toLocaleString('default', { month: 'long' });
     return `${currentMonth} Expenses`;
   };
+  // const headers = {
+  //   'Authorization': 'Y2hhbmFreWFAZ21haWwuY29tOnBhc3N3b3Jk',
+  //   'Access-Control-Allow-Origin' : '*'
+  // }
+
+  const headers = new Headers();
+headers.append('Authorization', `Basic Y2hhbmFreWFAZ21haWwuY29tOnBhc3N3b3Jk`); // Ensure correct case
 
   useEffect(() => {
+
+  //   fetch('https://15af-2600-6c40-75f0-ffc0-dc90-95b4-5282-a6e0.ngrok-free.app/expenses', {
+  //     method: 'GET',
+  //     headers: headers,
+  //     // mode: 'no-cors',
+  //     origin: 'http://localhost:3000/'
+  // })
+  //     .then((response) => {
+  //       if (response.ok) {
+  //         console.log('Successfully fetched expenses.');
+  //         return response.json();
+  //       } else {
+  //         throw new Error('Failed to fetch expenses.');
+  //       }
+  //     })
+  //     .then((data) => {
+  //       console.log('Data received:', data);
+  //       setExpenses(data);
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error fetching expenses:', error);
+  //     });
+  
+
     if (chartRef.current) {
       if (chartInstanceRef.current) {
         // If a chart instance already exists, destroy it
