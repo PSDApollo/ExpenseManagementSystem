@@ -6,7 +6,22 @@
    <defaultProfile>false</defaultProfile>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'localhost.com:4404'</initValue>
+      <initValue>'localhost.com:3000'</initValue>
       <name>url</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'expenseUser'</initValue>
+      <name>userName</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'ExpenseManager@123'</initValue>
+      <name>password</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'expensemanager@example.com'</initValue>
+      <name>email</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>
