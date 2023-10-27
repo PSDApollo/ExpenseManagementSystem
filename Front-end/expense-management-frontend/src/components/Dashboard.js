@@ -1,18 +1,28 @@
-// Dashboard.js
 import React from 'react';
-import BarChart from './BarChart';
-// import './dashboard.css';
-const Dashboard = () => {
+import { Link } from 'react-router-dom';
+import '../dashboardstyle.css';  
+
+function Dashboard() {
   return (
-    <div>
-    <h1>Graphical Dashboard</h1>
-    <div className='container'>
-      <div className='barchart-container'>
-      <BarChart />
+      <div className="dashboard-container">
+          <header>
+              <h1>APOLLO</h1>
+              <Link to="/">
+                  <button className="logout-btn">Logout</button>
+              </Link>
+          </header>
+          <div className="main-content">
+              <h2>Welcome User!</h2>
+              <Link to="/add-expense">
+                  <button className="action-btn">Add Expense</button>
+              </Link>
+              <Link to="/expenselist">
+                  <button className="action-btn">Expense Log</button>
+              </Link>
+          </div>
       </div>
-    </div>
-    </div>
   );
-};
+}
 
 export default Dashboard;
+

@@ -8,8 +8,8 @@
 3. Install JavaJDK from the below url
    https://www.oracle.com/java/technologies/downloads/
 4. Clone the project ExpenseManagementSystem on your local environment
-5. Open any IDE for running your project.(IntelliJ or Eclipse is preffered because it automatically adds all the required       dependencies).Open the backend folder from the ExpenseManagemenrSystem in the cloned project.
-6. Change the username and password in application.properties file which is located at src->main->java->resources. Change       the server port if you want to in the same file.
+5. Open any IDE for running your project.(IntelliJ or Eclipse is preffered because it automatically adds all the required dependencies).Open the backend folder from the ExpenseManagemenrSystem in the cloned project.
+6. Change the username and password in application.properties file which is located at src->main->java->resources. Change the server port if you want to in the same file.
 7. Make sure tomcat server is running on your system since Java Springboot needs a server to run.
 8. Run ExpenseManagementApplication.java file. Since it has the main function for our application. 
 
@@ -17,7 +17,7 @@
 1. Install NodeJs v16/20.2 version from the below URL
    https://nodejs.org/download/release/v16.20.2/
 2. Clone the project ExpenseManagementSystem on your local environment
-3. Open any IDE for running your project.(Visual Studio Code is preffered since it has lot of extensions) Open the frontend       folder from the ExpenseManagemenrSystem in the cloned project.
+3. Open any IDE for running your project.(Visual Studio Code is preffered since it has lot of extensions) Open the frontend folder from the ExpenseManagemenrSystem in the cloned project.
 4. Open powershell
 5. Run the command "npm start". Make sure your backend application is up and running.
 6. Application will open in the browser on port 3000.
@@ -30,7 +30,7 @@
 3. Below is the postman collection for our application. 
   https://sluedu-my.sharepoint.com/:u:/g/personal/saiteja_juluru_slu_edu/EcLUQtz1D39KmbO_auUb8cABs40HQytZelDMsV8CW9U7bQ?e=38WzNw
 
-  CircleCI added
+  CircleCI has been succesfully added
 
 
 

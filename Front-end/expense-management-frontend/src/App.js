@@ -1,19 +1,23 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-
-import ExpenseList from './components/ExpenseList';
-import AddExpense from './components/AddExpense';
+import Dashboard from './components/Dashboard';
 import Home from './components/Home'; 
 import Dashboard from './components/Dashboard';
+import Login from './components/Login';
+import Signup from './components/Signup';
+import ExpenseList from './components/ExpenseList'; 
+import AddExpense from './components/AddExpense';   
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Routes>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/expenselist" element={<ExpenseList />} />
           <Route path="/add-expense" element={<AddExpense />} />
-          <Route path="/dashboard" element={<Dashboard/>} />
           <Route path="/" element={<Home />} />
         </Routes>
       </div>
