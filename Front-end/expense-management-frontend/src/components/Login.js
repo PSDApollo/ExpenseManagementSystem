@@ -7,7 +7,7 @@ import expenseManagementImage from '../images/naassom-azevedo-Q_Sei-TqSlc-unspla
 function Login() {
     const navigate = useNavigate();
     const [credentials, setCredentials] = useState({
-        username: '',
+        email: '',
         password: ''
     });
 
@@ -21,8 +21,9 @@ function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault(); 
-        fetch('backend-url', {
+        fetch('https://15af-2600-6c40-75f0-ffc0-dc90-95b4-5282-a6e0.ngrok-free.app/login', {
             method: 'POST',
+            origin: 'http://localhost:3000/',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -31,7 +32,7 @@ function Login() {
         .then(res => res.json())
         .then(data => {
             if (data.success) {
-                navigate('/home');
+                navigate('/dashboard');
             } else {
                 alert('Login failed!');
             }
@@ -54,7 +55,7 @@ function Login() {
                     <input 
                         type="text" 
                         class = "username"
-                        name="username" 
+                        name="email" 
                         placeholder="Enter username" 
                         onChange={handleInputChange} 
                     />
