@@ -52,7 +52,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .antMatchers("/register").permitAll()
                     .antMatchers("/login").permitAll()
                 .anyRequest().authenticated()
-                .and().httpBasic();
+                .and().httpBasic()
+                .and().cors();
         http.addFilterBefore((Filter)this.customSessionFilter, UsernamePasswordAuthenticationFilter.class);
     }
 }
