@@ -26,7 +26,6 @@ public class ProfileService {
         );
         userRepo.save(profile);
         return userRepo.findByEmail(user.getEmail()).getId();
-
     }
 
     public String loginUser(Profile user) {

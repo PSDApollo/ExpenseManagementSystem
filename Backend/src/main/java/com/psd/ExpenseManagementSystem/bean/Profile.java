@@ -10,6 +10,7 @@ public class Profile {
     private  long id;
 
 
+    @Column(unique = true)
     public String getEmail() {
         return email;
     }
