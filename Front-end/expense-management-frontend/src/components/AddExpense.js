@@ -29,9 +29,10 @@ function AddExpense() {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newExpense),
-    })
+        'Authorization': localStorage.getItem('userKey') 
+    },
+    body: JSON.stringify(newExpense),
+})
       .then((response) => {
         if (response.ok) {
           console.log('Expense added successfully.');
