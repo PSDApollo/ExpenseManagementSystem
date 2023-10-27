@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 
+// This file is for writing the functionalities for all the things related to expense.
 @Service
 public class ExpenseService {
 	@Autowired
@@ -24,6 +25,7 @@ public class ExpenseService {
 	@Autowired
 	private HttpServletRequest request;
 
+	// Functionality for getting all the expenses created.
 	public List<Expense> getAllExpenses()
 	{
 		List<Expense> expenses = new ArrayList<>();
@@ -31,25 +33,27 @@ public class ExpenseService {
 		return expenses;
 	}
 
-	public String getHeaders(){
-		String authorizationHeader = request.getHeader("Authorization");
 
-		return authorizationHeader;
+	// Functionality for getting the token from headers
+	public String getHeaders(){
+		return request.getHeader("Authorization");
 	}
 
+	// Functionality for getting a specific expense.
 	public Optional<Expense> getAnExpense(long id)
 	{
 		return expenseRepo.findById(id);
 	}
 
+	// Functionality for getting the user related information i.e., for session.
 	public long getProfileIdFromHeader(){
 		byte[] decodedBytes = Base64.getDecoder().decode(getHeaders());
 		String decodedString = new String(decodedBytes);
 		decodedString = decodedString.split(":")[0];
-		long profile_id = userRepo.findByEmail(decodedString).getId();
-		return profile_id;
+		return userRepo.findByEmail(decodedString).getId();
 	}
 
+	// Functionality for adding an expense.
 	public void addExpense(Expense expense) {
 		long profile_id = getProfileIdFromHeader();
 		expense.setProfile_id(profile_id);
@@ -57,11 +61,13 @@ public class ExpenseService {
 
 	}
 
+	// Functionality for updating an expense.
 	public void updateExpense(Long id, Expense expense) {
 		expenseRepo.save(expense);
 
 	}
 
+	// Functionality for deleting an expense.
 	public void deleteExpense(Long id) {
 		expenseRepo.deleteById(id);
 

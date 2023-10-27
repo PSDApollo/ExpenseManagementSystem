@@ -14,6 +14,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import javax.servlet.Filter;
 
 
+// This file is for adding security configuration using spring security.
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -26,7 +27,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        // Set your configuration on the auth object
+        // Setting the configuration on the auth object
         auth.inMemoryAuthentication()
                 .withUser("blah")
                 .password("blah")
@@ -42,13 +43,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return NoOpPasswordEncoder.getInstance();
     }
 
+
+    // This method is used for enabling the type of http requests for accessing the database.
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-//                    .antMatchers("/admin").hasRole("ADMIN")
-//                    .antMatchers("/user").hasAnyRole("ADMIN", "USER")
-//                    .antMatchers("/").permitAll()
                     .antMatchers("/register").permitAll()
                     .antMatchers("/login").permitAll()
                 .anyRequest().authenticated()

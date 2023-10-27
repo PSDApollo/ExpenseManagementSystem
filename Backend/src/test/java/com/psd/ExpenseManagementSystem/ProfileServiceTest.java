@@ -38,25 +38,31 @@ public class ProfileServiceTest {
     public  void testRegisterUser(){
         // Creating a profile object
         Profile profile = new Profile(1, "test@gmail.com", "password", "Test User");
+        // saving it in the test repo directly and getting the result
         when(userRepo.save(profile)).thenReturn(profile);
+        // Verifying the result by using service class.
         assertEquals(profile, profileService.registerUser(profile));
     }
 
 
     @Test
     public void testLoginWithCorrectCredentials() {
+        // Creating a dummy user for verifying login
         Profile testUser = new Profile();
         testUser.setEmail("test@example.com");
         testUser.setPassword("password123");
         testUser.setProfile_name("TestUser");
         profileService.registerUser(testUser);
 
+        // Object for login
         Profile loginUser = new Profile();
 
         loginUser.setEmail("temp@gmail.com");
         loginUser.setPassword("1234");
+        // Getting result of loginUser functionality
         String result = profileService.loginUser(loginUser);
         String authToken = "dGVtcEBnbWFpbC5jb206MTIzNA==";
+        // Comparing expected and actual results
         assertEquals(authToken, result);
     }
 

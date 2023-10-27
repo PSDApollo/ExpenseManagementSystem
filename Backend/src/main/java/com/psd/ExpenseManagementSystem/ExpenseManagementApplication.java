@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 @ComponentScan(basePackages = "com.psd.ExpenseManagementSystem")
 public class ExpenseManagementApplication {
 
+	// main function running spring boot application
 	public static void main(String[] args) {
 		SpringApplication.run(ExpenseManagementApplication.class, args);
 	}

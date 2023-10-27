@@ -23,6 +23,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Base64;
 
+
+// This file is used for maintaining a user session.
 @Component
 public class CustomSessionFilter extends OncePerRequestFilter {
 
@@ -36,11 +38,11 @@ public class CustomSessionFilter extends OncePerRequestFilter {
         if (header!=null){
             byte[] decodedBytes = Base64.getDecoder().decode(header);
             String decodedString = new String(decodedBytes);
-//          System.out.println(decodedString.split(":"));
             userName = decodedString.split(":")[0];
             userPassword = decodedString.split(":")[1];
         }
         if (userName != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+            // Rechecking whether the user is present in the database or not.
             Profile profileData = this.userRepo.findByEmail(userName);
             UserDetails userDetails = (UserDetails) new User(profileData.getEmail(),profileData.getPassword(),new ArrayList());
 

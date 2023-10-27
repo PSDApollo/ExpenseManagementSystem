@@ -3,11 +3,14 @@ package com.psd.ExpenseManagementSystem.bean;
 import javax.persistence.*;
 import java.util.Date;
 
+
+// Creating a table with all the required fields.
 @Entity
 @Table(name="Expense")
 public class Expense {
 
 	@Id
+	// This is used to create a id automatically in a sequence
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private  long id;
 	private String name;
@@ -17,6 +20,8 @@ public class Expense {
 	private Integer amount;
 
 	private Date expense_date;
+
+	// Adding getters and setters for all the fields in the table.
 
 	public long getProfile_id() {
 		return profile_id;
@@ -31,6 +36,8 @@ public class Expense {
 	public Expense() {
 
 	}
+
+	// Adding a constructor for initializing a table.
 	public Expense(long id, String name, String description, Integer amount, Date expense_date, long profile_id) {
 		super();
 		this.id = id;

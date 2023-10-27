@@ -2,6 +2,7 @@ package com.psd.ExpenseManagementSystem.bean;
 
 import javax.persistence.*;
 
+// Creating a profile table for
 @Entity
 @Table(name="Profile")
 public class Profile {
