@@ -7,6 +7,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import ExpenseList from './components/ExpenseList'; 
 import AddExpense from './components/AddExpense';   
+import GraphicalDashboard from './components/graphical-dashboard/GraphicalDashboard';
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/expenselist" element={<ExpenseList />} />
           <Route path="/add-expense" element={<AddExpense />} />
-          <Route path="/" element={<Login />} />  
+          <Route path="/" element={<Login/>} />  
+          <Route path="/graphical-dashboard" element={<GraphicalDashboard />} />
         </Routes>
       </div>
     </Router>
