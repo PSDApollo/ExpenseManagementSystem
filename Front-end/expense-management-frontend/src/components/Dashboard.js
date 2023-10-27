@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../dashboardstyle.css';  
-
 function Dashboard() {
   return (
       <div className="dashboard-container">
@@ -18,6 +17,9 @@ function Dashboard() {
               </Link>
               <Link to="/expenselist">
                   <button className="action-btn">Expense Log</button>
+              </Link>
+              <Link to="/graphical-dashboard">
+                  <button className="action-btn">Graphical Dashboard</button>
               </Link>
           </div>
       </div>
