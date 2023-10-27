@@ -1,17 +1,28 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import AddExpense from './AddExpense';
-import ExpenseList from './ExpenseList';
-import '../style.css';
+import { Link } from 'react-router-dom';
+import '../dashboardstyle.css';  
 
 function Dashboard() {
-  const navigate = useNavigate();
   return (
-    <div className='dashboard'>
-      <AddExpense />
-      <ExpenseList />
-    </div>
+      <div className="dashboard-container">
+          <header>
+              <h1>APOLLO</h1>
+              <Link to="/">
+                  <button className="logout-btn">Logout</button>
+              </Link>
+          </header>
+          <div className="main-content">
+              <h2>Welcome User!</h2>
+              <Link to="/add-expense">
+                  <button className="action-btn">Add Expense</button>
+              </Link>
+              <Link to="/expenselist">
+                  <button className="action-btn">Expense Log</button>
+              </Link>
+          </div>
+      </div>
   );
 }
 
 export default Dashboard;
+

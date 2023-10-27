@@ -1,0 +1,59 @@
+.dashboard-container {
+  background: url(images/brahim-boran-YVnvtMA2mok-unsplash.jpg) no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+  width: 1200px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(50px) !important;
+}
+
+/* .dashboard-container img{
+  background-size: cover;
+  backdrop-filter: blur(10px);
+} */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+  background: orange;
+}
+
+h1 {
+  margin: 0;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;   
+}
+
+.action-btn {
+  padding: 15px 30px;
+  background: blue;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.action-btn:hover {
+  transform: scale(1.05);
+}
+
+.logout-btn {
+  padding: 10px 20px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}

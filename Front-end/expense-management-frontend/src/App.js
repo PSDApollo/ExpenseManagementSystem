@@ -15,7 +15,7 @@ function App() {
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/home" element={<ExpenseList />} />
+          <Route path="/expenselist" element={<ExpenseList />} />
           <Route path="/add-expense" element={<AddExpense />} />
           <Route path="/" element={<Login />} />  
         </Routes>
@@ -23,6 +23,5 @@ function App() {
     </Router>
   );
 }
-
 
 export default App;
