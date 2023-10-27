@@ -8,12 +8,11 @@ const BarChart = () => {
   const chartInstanceRef = useRef(null); // Store the chart instance
   const [totalExpenses, setTotalExpenses] = useState(0);
   const [highestExpenseDay, setHighestExpenseDay] = useState('');
-
   const getCurrentMonthExpenses = () => {
-    const currentMonth = new Date().toLocaleString('default', { month: 'long' });
+  const currentMonth = new Date().toLocaleString('default', { month: 'long' });
     return `${currentMonth} Expenses`;
   };
-
+//Function to get day with most expenses
   function getDayWithMostExpenses(expenses, days) {
     const maxExpense = Math.max(...expenses);
     const dayWithMaxExpense = days[expenses.indexOf(maxExpense)];
@@ -29,6 +28,7 @@ const BarChart = () => {
 
     if (chartRef.current) {
       if (chartInstanceRef.current) {
+        //Destroys the existing canvas        
         chartInstanceRef.current.destroy();
       }
 
@@ -40,7 +40,7 @@ const BarChart = () => {
       setTotalExpenses(yExpenseDataset.reduce((total, expense) => total + expense, 0));
 
       getDayWithMostExpenses(yExpenseDataset, xLabelDays);
-
+      //Creates the bar chart
       chartInstanceRef.current = BarChartDesigner(chartRef, xLabelDays, [dataSetBuilder('Expenses', yExpenseDataset, randomColors)], optionBuilder('Day', true, 'Expenses', 'true', false))
     }
   }, []);

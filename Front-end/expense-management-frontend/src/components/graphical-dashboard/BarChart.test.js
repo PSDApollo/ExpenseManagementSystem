@@ -16,14 +16,21 @@ test('Verify Page is rendered', () => {
   expect(linkElement).toBeInTheDocument();
 });
 
-test('Verify total expenses are displayed', () => {
+test('Verify Total expenses section is rendered', () => {
+    window.ResizeObserver = ResizeObserver;
+  render(<BarChart />);
+  const linkElement = screen.getByText('Total Expenses: ', { exact: false })
+  expect(linkElement).toBeInTheDocument();
+});
+
+test('Verify Most spent section is rendered', () => {
     window.ResizeObserver = ResizeObserver;
   render(<BarChart />);
   const linkElement = screen.getByText('Most spent on: ', { exact: false })
   expect(linkElement).toBeInTheDocument();
 });
 
-test('should show bar chart', () => {
+test('Verify Bar chart is rendered', () => {
   render(<BarChart />);
   const canvas = screen.getByRole('img');
   const ctx = canvas.getContext('2d');
