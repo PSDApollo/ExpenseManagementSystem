@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import BarChart from './BarChart';
 import React from 'react'
+import jsonData from './mockdata.json';
 
 class ResizeObserver {
     observe() {}
@@ -16,23 +17,24 @@ test('Verify Page is rendered', () => {
   expect(linkElement).toBeInTheDocument();
 });
 
+test('Verify Bar chart is rendered', () => {
+  render(<BarChart />);
+  const canvas = screen.getByRole('img');
+  const ctx = canvas.getContext('2d');
+  expect(ctx)
+});
+
 test('Verify Total expenses section is rendered', () => {
     window.ResizeObserver = ResizeObserver;
   render(<BarChart />);
-  const linkElement = screen.getByText('Total Expenses: ', { exact: false })
+  const linkElement = screen.getByText(`Total Expenses: $${jsonData.reduce((total, expense) => total + expense, 0)}`)
   expect(linkElement).toBeInTheDocument();
 });
+
 
 test('Verify Most spent section is rendered', () => {
     window.ResizeObserver = ResizeObserver;
   render(<BarChart />);
   const linkElement = screen.getByText('Most spent on: ', { exact: false })
   expect(linkElement).toBeInTheDocument();
-});
-
-test('Verify Bar chart is rendered', () => {
-  render(<BarChart />);
-  const canvas = screen.getByRole('img');
-  const ctx = canvas.getContext('2d');
-  expect(ctx)
 });

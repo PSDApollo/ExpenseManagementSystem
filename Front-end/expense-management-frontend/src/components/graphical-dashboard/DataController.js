@@ -1,9 +1,7 @@
-
+import jsonData from './mockdata.json';
 export function generateExpenseMockData(){
     const daysInMonth = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate();
-    const yExpenseDataset = Array.from({ length: daysInMonth }, () =>
-    Math.floor(Math.random() * 100) + 1
-  );
+    const yExpenseDataset = jsonData
   return yExpenseDataset
 }
 
