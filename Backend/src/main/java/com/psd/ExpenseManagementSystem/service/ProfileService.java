@@ -3,6 +3,8 @@ package com.psd.ExpenseManagementSystem.service;
 import com.psd.ExpenseManagementSystem.bean.Profile;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.psd.ExpenseManagementSystem.repository.ProfileRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -36,7 +38,7 @@ public class ProfileService {
 
 
     // Functionality for user login
-    public String loginUser(Profile user) {
+    public ResponseEntity<String> loginUser(Profile user) {
         // fetching the user information from db if it exists
         Profile user1 = userRepo.findByEmail(user.getEmail());
         if (user1 != null) {
@@ -46,14 +48,14 @@ public class ProfileService {
             if(passwordEncoder.matches(user.getPassword(), user1_password)) {
                 String temp = user.getEmail() + ":" + user.getPassword();
                 // returning the encoded key for further usage(maintaining the session)
-                return Base64.getEncoder().encodeToString(temp.getBytes());
+                return ResponseEntity.ok(Base64.getEncoder().encodeToString(temp.getBytes()));
             }
             else{
-                return "Incorrect Email or password";
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Incorrect Email or password");
             }
 
         } else {
-            return "user not found";
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
         }
     }
 }

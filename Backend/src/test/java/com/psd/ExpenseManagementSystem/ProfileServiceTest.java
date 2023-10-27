@@ -10,6 +10,7 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
 import static org.junit.Assert.*;
@@ -60,7 +61,7 @@ public class ProfileServiceTest {
         loginUser.setEmail("temp@gmail.com");
         loginUser.setPassword("1234");
         // Getting result of loginUser functionality
-        String result = profileService.loginUser(loginUser);
+        ResponseEntity<String> result = profileService.loginUser(loginUser);
         String authToken = "dGVtcEBnbWFpbC5jb206MTIzNA==";
         // Comparing expected and actual results
         assertEquals(authToken, result);
@@ -80,7 +81,7 @@ public class ProfileServiceTest {
         when(passwordEncoder.matches("wrongpassword", user.getPassword())).thenReturn(false);
 
         // Call the loginUser method with incorrect password
-        String result = profileService.loginUser(new Profile(1L, "user@example.com", "wrongpassword", "John"));
+        ResponseEntity<String> result = profileService.loginUser(new Profile(1L, "user@example.com", "wrongpassword", "John"));
 
         // Assertions
         assertEquals("Incorrect Email or password", result);
@@ -94,7 +95,7 @@ public class ProfileServiceTest {
         loginUser.setPassword("password123");
 
         // Call the loginUser method and capture the result
-        String result = profileService.loginUser(loginUser);
+        ResponseEntity<String> result = profileService.loginUser(loginUser);
 
         // Asserting that the result is as expected (e.g., "user not found")
         assertEquals("user not found", result);
