@@ -20,7 +20,7 @@ public class CorsConfig implements WebMvcConfigurer {
                 // Defining the type of requests
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                 // Defining the allowed headers.
-                .allowedHeaders("Origin", "Content-Type", "Accept")
+                .allowedHeaders("Origin", "Content-Type", "Accept", "Authorization")
                 .allowCredentials(true);
     }
 }

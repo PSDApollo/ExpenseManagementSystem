@@ -2,6 +2,7 @@ package com.psd.ExpenseManagementSystem.controller;
 
 import com.psd.ExpenseManagementSystem.bean.Profile;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.psd.ExpenseManagementSystem.service.ProfileService;
 
@@ -24,7 +25,7 @@ public class ProfileController {
 
     // Defining a route for profile login.
     @RequestMapping(method = RequestMethod.POST, value="/login")
-    public String loginUser(@RequestBody Profile user)
+    public ResponseEntity<String> loginUser(@RequestBody Profile user)
     {
         return userService.loginUser(user);
     }
