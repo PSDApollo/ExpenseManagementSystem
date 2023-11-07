@@ -7,7 +7,7 @@ jobs:
       - image: cimg/python:3.8
     steps:
       - checkout
-      -setup_remote_docker:
+      - setup_remote_docker:
         version: 19.03.13
       - run: 
           name: Install Docker client
