@@ -17,7 +17,10 @@ jobs:
       - run:
           name: Run Tests
           command: npm test
-          working_directory: ~/project/ExpenseManagementSystem/Front-end/expense-management-frontend
+          working_directory: Front-end/expense-management-frontend
+      
+      - store_test_results:
+          path: test-reports
 
 workflows:
   Setup_Test:
