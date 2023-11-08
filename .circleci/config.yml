@@ -12,8 +12,7 @@ jobs:
           command: ls -al
       - run:
           name: Install Dependencies
-          command: cd /home/circleci/project/ExpenseManagementSystem/Front-end/expense-management-frontend/
-npm installnpm install
+          command: npm install
       - run:
           name: Run Tests
           command: npm test
