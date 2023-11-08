@@ -13,6 +13,7 @@ jobs:
       - run:
           name: Install Dependencies
           command: npm install
+          working_directory: Front-end/expense-management-frontend
       - run:
           name: Run Tests
           command: npm test
