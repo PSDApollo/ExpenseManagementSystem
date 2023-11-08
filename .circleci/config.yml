@@ -10,11 +10,11 @@ jobs:
       - run:
           name: Install Dependencies
           command: npm install
-          working_directory: ../../Front-end/expense-management-frontend  # Set the working directory to the correct path
+          working_directory: ~/project/ExpenseManagementSystem/Front-end/expense-management-frontend
       - run:
           name: Run Tests
           command: npm test
-          working_directory: ../../Front-end/expense-management-frontend  # Set the working directory to the correct path
+          working_directory: ~/project/ExpenseManagementSystem/Front-end/expense-management-frontend
 
 workflows:
   Setup_Test:
