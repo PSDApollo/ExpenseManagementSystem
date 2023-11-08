@@ -8,7 +8,18 @@ class ResizeObserver {
     observe() {}
     unobserve() {}
     disconnect() {}
+  } 
+
+function renderPage(){
+  try {
+    render(<BarChart />);
+  } catch (error) {
+    if(!expect(screen.getByTestId('graphical-dashboard').toBeInTheDocument())){
+    console.error('An error occurred:', error);
+    this.setState({ error });
+    }
   }
+}
 
 test('Verify Page is rendered', () => {
     window.ResizeObserver = ResizeObserver;

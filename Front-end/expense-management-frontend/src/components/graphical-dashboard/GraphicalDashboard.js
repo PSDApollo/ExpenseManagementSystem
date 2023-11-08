@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const GraphicalDashboard = () => {
   return (
-    <div>
+    <div id='graphical-dashboard'>
     <div>
       <div className='barchart-container'>
       <BarChart />

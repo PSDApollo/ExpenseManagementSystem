@@ -54,14 +54,14 @@ function Login() {
                 <form onSubmit={handleSubmit}>
                     <input 
                         type="text" 
-                        class = "username"
+                        className = "username"
                         name="email" 
                         placeholder="Enter username" 
                         onChange={handleInputChange} 
                     />
                     <input 
                         type="password" 
-                        class = "password"
+                        className = "password"
                         name="password" 
                         placeholder="Password" 
                         onChange={handleInputChange} 
