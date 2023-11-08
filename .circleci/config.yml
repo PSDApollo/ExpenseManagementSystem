@@ -1,16 +1,16 @@
 version: 2.1
 
 jobs:
-  hello-job:
+  setup-dependancies:
     machine:
-      image: ubuntu-2204:2022.07.1
+      image: windows-latest:2022-07-10
 
     steps:
-      # Commands are run in a Windows virtual machine environment
       - checkout
-      - run: echo "Hello, World!"
+      - run: npm install
+      - run: npm test
 
 workflows:
   my-workflow:
     jobs:
-      - hello-job
+      - setup-dependancies

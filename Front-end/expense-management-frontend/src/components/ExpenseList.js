@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import '../expenseliststyle.css'; 
- 
+import './expenseliststyle.css'; 
+
 function ExpenseList() {
   const [expenses, setExpenses] = useState([]);
  
