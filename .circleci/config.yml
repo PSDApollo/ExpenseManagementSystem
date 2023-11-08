@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   setup-test:
     machine:
-      image: windows-latest:2022-07-10
+      image: ubuntu-2204:2022.07.1
 
     steps:
       - checkout
