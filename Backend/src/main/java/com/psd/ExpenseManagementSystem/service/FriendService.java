@@ -1,5 +1,6 @@
 package com.psd.ExpenseManagementSystem.service;
 
+import com.psd.ExpenseManagementSystem.bean.Expense;
 import com.psd.ExpenseManagementSystem.bean.Friend;
 import com.psd.ExpenseManagementSystem.repository.FriendRepository;
 import com.psd.ExpenseManagementSystem.repository.ProfileRepository;
@@ -7,7 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.Base64;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FriendService {
@@ -35,5 +39,17 @@ public class FriendService {
         long profile_id = getProfileIdFromHeader();
         friend.setProfile_id(profile_id);
         friendRepo.save(friend);
+    }
+
+    public List<Friend> getAllFriends()
+    {
+        List<Friend> friends = new ArrayList<>();
+        friendRepo.findAll().forEach(friends::add);
+        return friends;
+    }
+
+    public Optional<Friend> getFriend(long id)
+    {
+        return friendRepo.findById(id);
     }
 }
