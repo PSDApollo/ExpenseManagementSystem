@@ -12,7 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
-
+import java.util.Calendar;
+import java.util.Date;
 // This file is for writing the functionalities for all the things related to expense.
 @Service
 public class ExpenseService {
@@ -72,4 +73,26 @@ public class ExpenseService {
 		expenseRepo.deleteById(id);
 
 	}
+
+	private boolean isExpenseFromCurrentMont(Date dateOfExpense){
+		int currentMonth = Calendar.getInstance().get(Calendar.MONTH) + 1;
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(dateOfExpense);
+		int monthValue = calendar.get(Calendar.MONTH) + 1;
+		return currentMonth == monthValue;
+	}
+
+	public List<Integer> getFilteredExpensesForDashboard(){
+
+		List<Expense> allExpenses = getAllExpenses();
+		List<Integer> expenseAmounts = new ArrayList<>();
+
+		for(Expense expense : allExpenses){
+			if(isExpenseFromCurrentMont(expense.getExpense_date()))
+				expenseAmounts.add(expense.getAmount());
+		}
+
+		return expenseAmounts;
+	}
+	
 }

@@ -58,4 +58,11 @@ public class ExpenseController {
 		expenseService.deleteExpense(id);
 	}
 
+	// Defining a route for retrieving just expense amounts.
+	@RequestMapping(method = RequestMethod.GET, value="/expenses/dashboard")
+	public List<Integer> getFilteredExpensesForDashboard()
+	{
+		return expenseService.getFilteredExpensesForDashboard();
+	}
+
 }
