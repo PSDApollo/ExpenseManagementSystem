@@ -1,11 +1,9 @@
 package com.psd.ExpenseManagementSystem.service;
 
-import java.util.ArrayList;
-import java.util.Base64;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import com.psd.ExpenseManagementSystem.bean.Expense;
+import com.psd.ExpenseManagementSystem.iterators.ProfileIdAndMonthFilteredExpenseIterator;
 import com.psd.ExpenseManagementSystem.repository.ExpenseRepository;
 import com.psd.ExpenseManagementSystem.repository.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,4 +70,21 @@ public class ExpenseService {
 		expenseRepo.deleteById(id);
 
 	}
+
+	//Functionality for getting expense amounts for current user
+	public List<Map.Entry<Integer,Integer>> getFilteredExpensesForDashboard(){
+
+		List<Expense> allExpenses = getAllExpenses();
+		List<Map.Entry<Integer,Integer>> expenseAmounts = new ArrayList<>();
+
+		ProfileIdAndMonthFilteredExpenseIterator expenseIterator = new ProfileIdAndMonthFilteredExpenseIterator(allExpenses, getProfileIdFromHeader());
+
+		while (expenseIterator.hasNext()) {
+			Map.Entry<Integer,Integer> amount = expenseIterator.next();
+			expenseAmounts.add(amount);
+		}
+		return expenseAmounts;
+	}
+	
 }
+

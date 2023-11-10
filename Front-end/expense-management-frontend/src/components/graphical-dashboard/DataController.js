@@ -1,21 +1,26 @@
 import jsonData from './mockdata.json';
 export function generateExpenseMockData(){
-    const daysInMonth = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate();
     const yExpenseDataset = jsonData
   return yExpenseDataset
 }
 
-function ExpenseList() {
-//   const [expenses, setExpenses] = useState([]);
-    console.log('Fetching expenses...');
-    fetch('https://099b-2600-6c40-7500-11f5-3c2f-7679-1906-59fb.ngrok-free.app/expenses')
-      .then((response) => {
-        if (response.ok) {
-          console.log('Successfully fetched expenses.');
-          return response.json();
-        } else {
-          throw new Error('Failed to fetch expenses.');
+function fetchExpensesFromAPI(){
+  const expenses = [];
+  console.log('Fetching expenses...');
+    const key = localStorage.getItem('myKey'); 
+ 
+    if (key) {
+      fetch('https://de90-2600-6c40-75f0-ffc0-415f-a6be-cacf-8e46.ngrok-free.app/dashboard', {
+        method: 'GET',
+        headers: {
+          'Authorization': key, // Use the key as the Authorization header
         }
+      })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json(); // Parse the response as JSON
       })
       .then((data) => {
         console.log('Data received:', data);
@@ -24,13 +29,22 @@ function ExpenseList() {
       .catch((error) => {
         console.error('Error fetching expenses:', error);
       });
+    } else {
+      console.error('Key not found in local storage');
+    }
+    console.log(expenses)
+    return expenses
 }
 
-export function getExpenseGraphData(){
-    const expenses = ExpenseList()
-    const expenseArray = []
-    expenses.array.forEach(element => {
-        expenseArray.push(element.amount)
+export function getExpenseArrayFromAPI(){
+  const daysInMonth = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0).getDate();
+  let expensesArray = Array.from({ length: daysInMonth }, () => 0);
+  jsonData = fetchExpensesFromAPI()
+    jsonData.forEach(item => {
+      const [dayIndex, value] = Object.entries(item)[0];
+      expensesArray[parseInt(dayIndex, 10) - 1] = value;
     });
-    return expenseArray;
+
+    console.log(expensesArray);
+    return expensesArray
 }
