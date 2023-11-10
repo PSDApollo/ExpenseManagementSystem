@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-// import '../expenseliststyle.css'; 
+import '../expenseliststyle.css';
  
 function ExpenseList() {
   const [expenses, setExpenses] = useState([]);
@@ -9,7 +9,7 @@ function ExpenseList() {
     const key = localStorage.getItem('myKey'); 
  
     if (key) {
-      fetch('https://15af-2600-6c40-75f0-ffc0-dc90-95b4-5282-a6e0.ngrok-free.app/expenses', {
+      fetch('https://00dc-2600-6c40-75f0-ffc0-415f-a6be-cacf-8e46.ngrok-free.app/expenses', {
         method: 'GET',
         headers: {
           'Authorization': key, // Use the key as the Authorization header

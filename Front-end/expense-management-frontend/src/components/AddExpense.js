@@ -25,11 +25,11 @@ function AddExpense() {
       expense_date: expense.expenseDate,
     };
 
-    fetch('https://3390-2600-6c40-7500-11f5-3c2f-7679-1906-59fb.ngrok-free.app/expenses', {
+    fetch('https://00dc-2600-6c40-75f0-ffc0-415f-a6be-cacf-8e46.ngrok-free.app/expenses', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': localStorage.getItem('userKey') 
+        'Authorization': localStorage.getItem('myKey') 
     },
     body: JSON.stringify(newExpense),
 })
@@ -37,7 +37,7 @@ function AddExpense() {
         if (response.ok) {
           console.log('Expense added successfully.');
           window.alert('Expense added successfully.');
-          history('/');
+          history('/dashboard');
         } else {
           console.error('Failed to add expense.');
         }

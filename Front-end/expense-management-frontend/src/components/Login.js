@@ -22,7 +22,7 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();  // Prevent the form from reloading the page.
 
-    fetch('https://8f32-2600-6c40-75f0-ffc0-415f-a6be-cacf-8e46.ngrok-free.app/login', {
+    fetch('https://00dc-2600-6c40-75f0-ffc0-415f-a6be-cacf-8e46.ngrok-free.app/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ function Login() {
       }
     })
     .then((key) => {
-      localStorage.setItem('myKey', key); // Store the key in local storage
+      localStorage.setItem('myKey', key);
       console.log('Key received: ', key);
       navigate('/dashboard');
     })

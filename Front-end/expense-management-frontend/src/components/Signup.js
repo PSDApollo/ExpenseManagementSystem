@@ -26,16 +26,17 @@ function Signup() {
             profile_name: userInfo.profile_name
         };
     
-        fetch('https://8f32-2600-6c40-75f0-ffc0-415f-a6be-cacf-8e46.ngrok-free.app/register', {
+        fetch('https://00dc-2600-6c40-75f0-ffc0-415f-a6be-cacf-8e46.ngrok-free.app/register', {
             method: 'POST',
-            origin: 'http://localhost:3000',
+            // origin: 'http://localhost:3000/',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(payload),
         })
         .then((response) => {
-            if (response.ok) {
+            console.log(response);
+            if (response) {
                 console.log('User added!');
                 alert('User Registered Successfully.');
                 navigate('/');
@@ -45,8 +46,7 @@ function Signup() {
             }
         })
         .catch((error) => {
-            console.error('Error:', error);
-            alert('Signup failed. Please try again.');
+          console.error(error);
         });
     };
 
