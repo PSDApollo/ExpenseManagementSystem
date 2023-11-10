@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.psd.ExpenseManagementSystem.bean.Expense;
+import com.psd.ExpenseManagementSystem.iterators.ProfileIdAndMonthFilteredExpenseIterator;
 import com.psd.ExpenseManagementSystem.repository.ExpenseRepository;
 import com.psd.ExpenseManagementSystem.repository.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,29 +75,20 @@ public class ExpenseService {
 
 	}
 
-	private boolean isExpenseFromCurrentMont(Date dateOfExpense){
-		int currentMonth = Calendar.getInstance().get(Calendar.MONTH) + 1;
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(dateOfExpense);
-		int monthValue = calendar.get(Calendar.MONTH) + 1;
-		return currentMonth == monthValue;
-	}
-
-	private boolean isExpenseForCurrentUser(long profileId){
-		return getProfileIdFromHeader() == profileId;
-	}
-
+	//Functionality for getting expense amounts for current user
 	public List<Integer> getFilteredExpensesForDashboard(){
 
 		List<Expense> allExpenses = getAllExpenses();
 		List<Integer> expenseAmounts = new ArrayList<>();
 
-		for(Expense expense : allExpenses){
-			if(isExpenseFromCurrentMont(expense.getExpense_date()) && isExpenseForCurrentUser(expense.getProfile_id()))
-				expenseAmounts.add(expense.getAmount());
-		}
+		ProfileIdAndMonthFilteredExpenseIterator expenseIterator = new ProfileIdAndMonthFilteredExpenseIterator(allExpenses, getProfileIdFromHeader());
 
+		while (expenseIterator.hasNext()) {
+			Integer amount = expenseIterator.next();
+			expenseAmounts.add(amount);
+		}
 		return expenseAmounts;
 	}
 	
 }
+
