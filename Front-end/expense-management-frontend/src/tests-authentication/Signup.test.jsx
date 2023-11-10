@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Signup from './Signup';
+import Signup from '../components/Signup';
 
 test('renders signup form with input fields and submit button', () => {
   render(<Signup />);

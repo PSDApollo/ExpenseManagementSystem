@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, waitFor, act } from '@testing-library/react';
-import ExpenseList from './ExpenseList'; // Adjust the import path as needed
+import ExpenseList from '../components/ExpenseList'; // Adjust the import path as needed
 
 // Mock the localStorage getItem function
 Storage.prototype.getItem = jest.fn();
