@@ -82,13 +82,17 @@ public class ExpenseService {
 		return currentMonth == monthValue;
 	}
 
+	private boolean isExpenseForCurrentUser(long profileId){
+		return getProfileIdFromHeader() == profileId;
+	}
+
 	public List<Integer> getFilteredExpensesForDashboard(){
 
 		List<Expense> allExpenses = getAllExpenses();
 		List<Integer> expenseAmounts = new ArrayList<>();
 
 		for(Expense expense : allExpenses){
-			if(isExpenseFromCurrentMont(expense.getExpense_date()))
+			if(isExpenseFromCurrentMont(expense.getExpense_date()) && isExpenseForCurrentUser(expense.getProfile_id()))
 				expenseAmounts.add(expense.getAmount());
 		}
 
