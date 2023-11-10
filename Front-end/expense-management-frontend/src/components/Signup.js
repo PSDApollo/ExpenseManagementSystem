@@ -26,8 +26,9 @@ function Signup() {
             profile_name: userInfo.profile_name
         };
     
-        fetch('https://15af-2600-6c40-75f0-ffc0-dc90-95b4-5282-a6e0.ngrok-free.app/register', {
+        fetch('https://8f32-2600-6c40-75f0-ffc0-415f-a6be-cacf-8e46.ngrok-free.app/register', {
             method: 'POST',
+            origin: 'http://localhost:3000',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -55,7 +56,7 @@ function Signup() {
             <img src={expenseManagementImage} alt="Expense Management" />
           </div>
           <div className="form-section color-section">
-            <h1>Signup Apollo!</h1>
+            <h1 data-testid='signup-header'>Signup Apollo!</h1>
             <form onSubmit={handleSubmit}>
               <input 
                 type="text" 
@@ -68,7 +69,7 @@ function Signup() {
                 type="text" 
                 className="username"
                 name="email" 
-                placeholder="Enter username" 
+                placeholder="Enter Email" 
                 onChange={handleInputChange} 
               />
               <input 
@@ -85,7 +86,7 @@ function Signup() {
                 placeholder="Retype Password" 
                 onChange={handleInputChange} 
               />
-              <button type="submit">Sign Up</button>
+              <button type="submit" data-testid='signup-button'>Sign Up</button>
               <div className="signup-text">
                 Already have an account? <Link to="/">Login</Link>
               </div>
