@@ -5,29 +5,51 @@ export function generateExpenseMockData(){
   return yExpenseDataset
 }
 
-function ExpenseList() {
-//   const [expenses, setExpenses] = useState([]);
-    console.log('Fetching expenses...');
-    fetch('https://099b-2600-6c40-7500-11f5-3c2f-7679-1906-59fb.ngrok-free.app/expenses')
-      .then((response) => {
-        if (response.ok) {
-          console.log('Successfully fetched expenses.');
-          return response.json();
-        } else {
-          throw new Error('Failed to fetch expenses.');
+export function fetchExpensesFromAPI(){
+  const expenses = [];
+  console.log('Fetching expenses...');
+    const key = localStorage.getItem('myKey'); 
+ 
+    if (key) {
+      fetch('https://15af-2600-6c40-75f0-ffc0-dc90-95b4-5282-a6e0.ngrok-free.app//expenses/dashboard', {
+        method: 'GET',
+        headers: {
+          'Authorization': key, // Use the key as the Authorization header
         }
+      })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json(); // Parse the response as JSON
       })
       .then((data) => {
         console.log('Data received:', data);
-        return data;
+        expenses(data);
       })
       .catch((error) => {
         console.error('Error fetching expenses:', error);
       });
+    } else {
+      console.error('Key not found in local storage');
+    }
+    return expenses
 }
 
+// export function extractExpensesFromAPI() {
+//     const expenseValues = [];
+//     const expenses = fetchExpensesFromAPI()
+//     for (let i = 0; i < expenses.length; i++) {
+     
+//       if ('amount' in expenses[i]) {
+//         expenseValues.push(expenses[i]['amount']);
+//       }
+//     }
+//     return expenseValues;
+// }
+
 export function getExpenseGraphData(){
-    const expenses = ExpenseList()
+    const expenses = fetchExpensesFromAPI()
     const expenseArray = []
     expenses.array.forEach(element => {
         expenseArray.push(element.amount)

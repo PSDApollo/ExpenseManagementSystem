@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { BarChartDesigner, getRandomColor, optionBuilder,dataSetBuilder } from './BarChartDesigner';
-import { generateExpenseMockData } from './DataController';
+import { generateExpenseMockData, fetchExpensesFromAPI } from './DataController';
 
 
 const BarChart = () => {
@@ -12,6 +12,7 @@ const BarChart = () => {
   const currentMonth = new Date().toLocaleString('default', { month: 'long' });
     return `${currentMonth} Expenses`;
   };
+
 //Function to get day with most expenses
   function getDayWithMostExpenses(expenses, days) {
     const maxExpense = Math.max(...expenses);
@@ -35,7 +36,7 @@ const BarChart = () => {
 
       const xLabelDays = Array.from({ length: daysInMonth }, (_, i) => `${i + 1}`);
 
-      const yExpenseDataset = generateExpenseMockData()
+      const yExpenseDataset = fetchExpensesFromAPI()
 
       setTotalExpenses(yExpenseDataset.reduce((total, expense) => total + expense, 0));
 
