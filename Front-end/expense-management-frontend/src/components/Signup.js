@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import expenseManagementImage from '../images/pexels-cottonbro-studio-4629633.jpg';
 import '../signupstyles.css';
 
 function Signup() {
@@ -18,33 +19,6 @@ function Signup() {
         });
     };
 
-    // const handleSubmit = () => {
-    //     const payload = {
-    //         email: userInfo.email,
-    //         password: userInfo.password,
-    //         profile_name: userInfo.profile_name
-    //     };
-
-    
-    //     fetch('https://15af-2600-6c40-75f0-ffc0-dc90-95b4-5282-a6e0.ngrok-free.app/register', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(payload),
-    //     })
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         if (data.success) {
-    //             navigate('/');
-    //         } else {
-    //             alert('Signup failed!');
-    //         }
-    //     })
-    //     .catch(error => {
-    //         console.error('Signup Error:', error);
-    //     });
-    // };
     const handleSubmit = () => {
         const payload = {
             email: userInfo.email,
@@ -53,27 +27,27 @@ function Signup() {
         };
     
         fetch('https://15af-2600-6c40-75f0-ffc0-dc90-95b4-5282-a6e0.ngrok-free.app/register', {
-          method: 'POST',
-          origin: 'http://localhost:3000/',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(payload),
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload),
         })
-          .then((response) => {
+        .then((response) => {
             if (response.ok) {
-              console.log('User added!');
-              window.alert('User Registered Successfully.');
-              navigate('/');
+                console.log('User added!');
+                alert('User Registered Successfully.');
+                navigate('/');
             } else {
-              window.alert('Already User Exists!.');
-              navigate('/signup')
+                alert('Already User Exists!.');
+                navigate('/signup')
             }
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      };
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            alert('Signup failed. Please try again.');
+        });
+    };
 
     return (
         <div className="container">
@@ -81,7 +55,7 @@ function Signup() {
             <img src={expenseManagementImage} alt="Expense Management" />
           </div>
           <div className="form-section color-section">
-            <h1 data-testid='signup-header'>Signup Apollo!</h1>
+            <h1>Signup Apollo!</h1>
             <form onSubmit={handleSubmit}>
               <input 
                 type="text" 
@@ -111,7 +85,7 @@ function Signup() {
                 placeholder="Retype Password" 
                 onChange={handleInputChange} 
               />
-              <button type="submit" data-testid='signup-button'>Sign Up</button>
+              <button type="submit">Sign Up</button>
               <div className="signup-text">
                 Already have an account? <Link to="/">Login</Link>
               </div>
@@ -119,7 +93,6 @@ function Signup() {
           </div>
         </div>
       );
-}
-
+    }
 
 export default Signup;

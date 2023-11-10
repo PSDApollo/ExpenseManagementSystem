@@ -11,7 +11,7 @@ function Dashboard() {
               </Link>
           </header>
           <div className="main-content">
-              <h2 className='welcome-box'>Welcome User!</h2>
+              <h2>Welcome User!</h2>
               <Link to="/add-expense">
                   <button className="action-btn">Add Expense</button>
               </Link>

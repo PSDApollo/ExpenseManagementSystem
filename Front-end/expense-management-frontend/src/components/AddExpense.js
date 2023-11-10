@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../addexpensestyle.css';
+import '../style.css';
 
 function AddExpense() {
   const history = useNavigate();
