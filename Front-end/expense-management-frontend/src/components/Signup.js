@@ -76,46 +76,49 @@ function Signup() {
       };
 
     return (
-        <>
-            <link rel="preconnect" href="https://fonts.googleapis.com" />
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-            <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One&family=Black+Ops+One&display=swap" rel="stylesheet" />
-
-            <link rel="preconnect" href="https://fonts.googleapis.com" />
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-            <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet" />
-
-            <link rel="preconnect" href="https://fonts.googleapis.com" />
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-            <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet" />
-            <div className="signup-container">
-                <div className="left-section">
-                    <div className="tagline">
-                        PLAN.<br />
-                        TRACK.<br />
-                        THRIVE.<br />
-                        EXPENSE MANAGEMENT THE APOLLO WAY!
-                    </div>
-                </div>
-                <div className="right-section">
-                    <h1>Signup</h1>
-                    <form>
-                        <label>Name:
-                            <input type="text" name="profile_name" onChange={handleInputChange} />
-                        </label><br />
-                        <label>Email:
-                            <input type="email" name="email" onChange={handleInputChange} />
-                        </label><br />
-                        <label>Password:
-                            <input type="password" name="password" onChange={handleInputChange} />
-                        </label><br />
-                        <button type="button" onClick={handleSubmit}>Signup</button>
-                    </form>
-                    <p>Already have an account? <Link to="/">Login</Link></p>
-                </div>
-            </div>
-        </>
-    );
+        <div className="container">
+          <div className="image-section">
+            <img src={expenseManagementImage} alt="Expense Management" />
+          </div>
+          <div className="form-section color-section">
+            <h1 data-testid='signup-header'>Signup Apollo!</h1>
+            <form onSubmit={handleSubmit}>
+              <input 
+                type="text" 
+                className="profile_name"
+                name="profile_name" 
+                placeholder="Full Name" 
+                onChange={handleInputChange} 
+              />
+              <input 
+                type="text" 
+                className="username"
+                name="email" 
+                placeholder="Enter username" 
+                onChange={handleInputChange} 
+              />
+              <input 
+                type="password" 
+                className="password"
+                name="password" 
+                placeholder="Password" 
+                onChange={handleInputChange} 
+              />
+              <input 
+                type="password" 
+                className="password1"
+                name="password1" 
+                placeholder="Retype Password" 
+                onChange={handleInputChange} 
+              />
+              <button type="submit" data-testid='signup-button'>Sign Up</button>
+              <div className="signup-text">
+                Already have an account? <Link to="/">Login</Link>
+              </div>
+            </form>
+          </div>
+        </div>
+      );
 }
 
 
