@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs:
-  setup-test:
+  setup-and-test:
     machine:
       image: ubuntu-2204:2022.07.1
 
@@ -15,13 +15,8 @@ jobs:
           name: Run Tests
           command: npm test
           working_directory: Front-end/expense-management-frontend
-      
-      - persist_to_workspace:
-          root: Front-end/expense-management-frontend
-          paths:
-            - test-reports
 
 workflows:
-  Setup_Test:
+  Setup_and_Test:
     jobs:
-      - setup-test
+      - setup-and-test
