@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { BarChartDesigner, getRandomColor, optionBuilder,dataSetBuilder } from './BarChartDesigner';
-import { generateExpenseMockData, fetchExpensesFromAPI } from './DataController';
+import { generateExpenseMockData, getExpenseArrayFromAPI } from './DataController';
 
 
 const BarChart = () => {
