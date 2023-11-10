@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import ExpenseList from './ExpenseList.';
+import ExpenseList from '../components/ExpenseList';
 
 describe('ExpenseList', () => {
   it('renders the expense list heading', () => {
