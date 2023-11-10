@@ -2,12 +2,10 @@ package com.psd.ExpenseManagementSystem.iterators;
 
 import com.psd.ExpenseManagementSystem.bean.Expense;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
+import java.util.AbstractMap;
 
-public class ProfileIdAndMonthFilteredExpenseIterator implements Iterator<Integer> {
+public class ProfileIdAndMonthFilteredExpenseIterator implements Iterator<Map.Entry<Integer, Integer>> {
     private final List<Expense> expenses;
     private int currentIndex;
     private final long expectedProfileId;
@@ -37,14 +35,20 @@ public class ProfileIdAndMonthFilteredExpenseIterator implements Iterator<Intege
     private boolean isExpenseFromCurrentMonth(Date expenseDate) {
         Calendar expenseCalendar = Calendar.getInstance();
         expenseCalendar.setTime(expenseDate);
-        int expenseMonth = expenseCalendar.get(Calendar.MONTH) + 1; // Calendar.MONTH is zero-based
+        int expenseMonth = expenseCalendar.get(Calendar.MONTH) + 1;
         return expenseMonth == currentMonth;
     }
 
+    private int getDayOfMonth(Date expenseDate){
+        Calendar expenseCalendar = Calendar.getInstance();
+        expenseCalendar.setTime(expenseDate);
+        return expenseCalendar.get(Calendar.DAY_OF_MONTH);
+    }
+
     @Override
-    public Integer next() {
+    public Map.Entry<Integer, Integer> next() {
         Expense currentExpense = expenses.get(currentIndex);
         currentIndex++;
-        return currentExpense.getAmount();
+        return new AbstractMap.SimpleEntry<>(getDayOfMonth(currentExpense.getExpense_date()), currentExpense.getAmount());
     }
 }

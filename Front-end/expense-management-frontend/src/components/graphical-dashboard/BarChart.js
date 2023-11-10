@@ -36,7 +36,7 @@ const BarChart = () => {
 
       const xLabelDays = Array.from({ length: daysInMonth }, (_, i) => `${i + 1}`);
 
-      const yExpenseDataset = fetchExpensesFromAPI()
+      const yExpenseDataset = generateExpenseMockData()
 
       setTotalExpenses(yExpenseDataset.reduce((total, expense) => total + expense, 0));
 

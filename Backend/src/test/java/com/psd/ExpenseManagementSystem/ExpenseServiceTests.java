@@ -18,6 +18,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
@@ -60,7 +61,7 @@ public class ExpenseServiceTests {
     @Test
     public  void testOnlyCurrentMonthExpensesAreRetrieved(){
         Profile user = login();
-        List<Integer> expenses = expenseService.getFilteredExpensesForDashboard();
+        List<Map.Entry<Integer,Integer>> expenses = expenseService.getFilteredExpensesForDashboard();
         List<Expense> allExpenses = expenseService.getAllExpenses();
         for (Expense expense : allExpenses){
             if(expense.getProfile_id() == user.getId()){

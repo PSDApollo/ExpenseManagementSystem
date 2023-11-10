@@ -1,9 +1,6 @@
 package com.psd.ExpenseManagementSystem.service;
 
-import java.util.ArrayList;
-import java.util.Base64;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import com.psd.ExpenseManagementSystem.bean.Expense;
 import com.psd.ExpenseManagementSystem.iterators.ProfileIdAndMonthFilteredExpenseIterator;
@@ -13,8 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Calendar;
-import java.util.Date;
+
 // This file is for writing the functionalities for all the things related to expense.
 @Service
 public class ExpenseService {
@@ -76,15 +72,15 @@ public class ExpenseService {
 	}
 
 	//Functionality for getting expense amounts for current user
-	public List<Integer> getFilteredExpensesForDashboard(){
+	public List<Map.Entry<Integer,Integer>> getFilteredExpensesForDashboard(){
 
 		List<Expense> allExpenses = getAllExpenses();
-		List<Integer> expenseAmounts = new ArrayList<>();
+		List<Map.Entry<Integer,Integer>> expenseAmounts = new ArrayList<>();
 
 		ProfileIdAndMonthFilteredExpenseIterator expenseIterator = new ProfileIdAndMonthFilteredExpenseIterator(allExpenses, getProfileIdFromHeader());
 
 		while (expenseIterator.hasNext()) {
-			Integer amount = expenseIterator.next();
+			Map.Entry<Integer,Integer> amount = expenseIterator.next();
 			expenseAmounts.add(amount);
 		}
 		return expenseAmounts;
