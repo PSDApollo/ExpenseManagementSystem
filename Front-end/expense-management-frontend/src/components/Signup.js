@@ -55,7 +55,7 @@ function Signup() {
             <img src={expenseManagementImage} alt="Expense Management" />
           </div>
           <div className="form-section color-section">
-            <h1>Signup Apollo!</h1>
+            <h1 data-testid='signup-header'>Signup Apollo!</h1>
             <form onSubmit={handleSubmit}>
               <input 
                 type="text" 
@@ -85,7 +85,7 @@ function Signup() {
                 placeholder="Retype Password" 
                 onChange={handleInputChange} 
               />
-              <button type="submit">Sign Up</button>
+              <button type="submit" data-testid='signup-button'>Sign Up</button>
               <div className="signup-text">
                 Already have an account? <Link to="/">Login</Link>
               </div>
