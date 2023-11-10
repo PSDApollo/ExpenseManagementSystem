@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import Dashboard from './components/Dashboard';
+import Dashboard from '../components/Dashboard';
 
 describe('Dashboard component', () => {
   it('renders header and buttons', () => {
