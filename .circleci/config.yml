@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs:
-  setup-and-test:
+  test-and-deploy:
     machine:
       image: ubuntu-2204:2022.07.1
 
@@ -19,15 +19,15 @@ jobs:
       - run:
           name: Build Docker Image
           command: |
-            docker build -t "$DOCKERHUB_USERNAME"/expense-management-system:"${CIRCLE_SHA1}" .
+            docker build -t "$DOCKERHUB_USERNAME"/expense-management-system:latest" .
 
       - run:
           name: Push Docker Image to Docker Hub
           command: |
             echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-            docker push "$DOCKERHUB_USERNAME"/expense-management-system:"${CIRCLE_SHA1}"
+            docker push "$DOCKERHUB_USERNAME"/expense-management-system:latest"
 
 workflows:
-  Setup_and_Test:
+  Test_and_Deploy:
     jobs:
-      - setup-and-test
+      - test-and-deploy
