@@ -30,9 +30,10 @@ jobs:
             docker push "$DOCKERHUB_USERNAME"/expense-management-system:latest
 
 workflows:
+  version: 2
   Test_and_Deploy:
     jobs:
-      - test-and-deploy
+      - test-and-deploy:
           filters:
             branches:
               only:
