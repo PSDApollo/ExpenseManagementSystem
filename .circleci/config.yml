@@ -19,13 +19,13 @@ jobs:
       - run:
           name: Build Docker Image
           command: |
-            docker build -t "$DOCKERHUB_USERNAME"/expense-management-system:latest" .
+            docker build -t "$DOCKERHUB_USERNAME"/expense-management-system:latest .
 
       - run:
           name: Push Docker Image to Docker Hub
           command: |
             echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-            docker push "$DOCKERHUB_USERNAME"/expense-management-system:latest"
+            docker push "$DOCKERHUB_USERNAME"/expense-management-system:latest
 
 workflows:
   Test_and_Deploy:
