@@ -18,11 +18,13 @@ jobs:
 
       - run:
           name: Build Docker Image
+          working_directory: Front-end
           command: |
             docker build -t "$DOCKERHUB_USERNAME"/expense-management-system:latest .
 
       - run:
           name: Push Docker Image to Docker Hub
+          working_directory: Front-end
           command: |
             echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
             docker push "$DOCKERHUB_USERNAME"/expense-management-system:latest
