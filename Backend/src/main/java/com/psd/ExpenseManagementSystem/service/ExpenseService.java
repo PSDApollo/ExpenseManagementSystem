@@ -23,7 +23,7 @@ public class ExpenseService {
 	ProfileRepository userRepo;
 
 	@Autowired
-	private HttpServletRequest request;
+	public javax.servlet.http.HttpServletRequest request;
 
 	// Functionality for getting all the expenses created.
 	public List<Expense> getAllExpenses()

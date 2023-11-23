@@ -1,10 +1,15 @@
 package com.psd.ExpenseManagementSystem.controller;
 
+import com.psd.ExpenseManagementSystem.bean.Expense;
 import com.psd.ExpenseManagementSystem.bean.Profile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
 import com.psd.ExpenseManagementSystem.service.ProfileService;
+import com.psd.ExpenseManagementSystem.service.UserProfileDto;
+
+import java.util.List;
 
 
 // This file is used for defining all the routes related to a profile.
@@ -29,5 +34,12 @@ public class ProfileController {
     {
         return userService.loginUser(user);
     }
+
+    @RequestMapping("/users")
+    public List<UserProfileDto> getAllExpenses()
+    {
+        return userService.getAllUsers();
+    }
+
 
 }

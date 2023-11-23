@@ -53,6 +53,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login").permitAll()
                 .antMatchers("/expenses").permitAll()
                 .antMatchers("/friends").permitAll()
+                .antMatchers("/users").permitAll()
                 .anyRequest().authenticated()
                 .and().httpBasic()
                 .and().cors();
