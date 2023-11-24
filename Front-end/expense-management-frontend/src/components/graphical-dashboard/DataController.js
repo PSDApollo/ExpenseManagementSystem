@@ -10,7 +10,7 @@ function fetchExpensesFromAPI(){
     const key = localStorage.getItem('myKey'); 
  
     if (key) {
-      fetch('https://de90-2600-6c40-75f0-ffc0-415f-a6be-cacf-8e46.ngrok-free.app/dashboard', {
+      fetch('http://localhost:9111/dashboard', {
         method: 'GET',
         headers: {
           'Authorization': key, // Use the key as the Authorization header

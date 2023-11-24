@@ -25,7 +25,7 @@ function AddExpense() {
       expense_date: expense.expenseDate,
     };
 
-    fetch('https://de90-2600-6c40-75f0-ffc0-415f-a6be-cacf-8e46.ngrok-free.app/expenses', {
+    fetch('http://localhost:9111/expenses', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
