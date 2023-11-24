@@ -42,4 +42,4 @@ workflows:
           filters:
             branches:
               only:
-                - docker_implementation
+                - main
