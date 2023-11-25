@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import com.psd.ExpenseManagementSystem.bean.Expense;
+import com.psd.ExpenseManagementSystem.bean.Friend;
 import com.psd.ExpenseManagementSystem.repository.ExpenseRepository;
 import com.psd.ExpenseManagementSystem.repository.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +30,13 @@ public class ExpenseService {
 	// Functionality for getting all the expenses created.
 	public List<Expense> getAllExpenses()
 	{
+		long profile_id = getProfileIdFromHeader();
 		List<Expense> expenses = new ArrayList<>();
 		expenseRepo.findAll().forEach(expenses::add);
-		return expenses;
+		List<Expense> filteredExpenses = expenses.stream()
+				.filter(expense -> expense.getProfile_id() == profile_id)
+				.collect(Collectors.toList());
+		return filteredExpenses;
 	}
 
 
