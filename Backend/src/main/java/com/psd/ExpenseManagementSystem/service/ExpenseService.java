@@ -1,6 +1,7 @@
 package com.psd.ExpenseManagementSystem.service;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 import com.psd.ExpenseManagementSystem.bean.Expense;
 import com.psd.ExpenseManagementSystem.iterators.ProfileIdAndMonthFilteredExpenseIterator;
