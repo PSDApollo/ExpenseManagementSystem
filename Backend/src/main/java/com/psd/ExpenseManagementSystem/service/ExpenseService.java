@@ -4,6 +4,7 @@ import java.util.*;
 
 import com.psd.ExpenseManagementSystem.bean.Expense;
 import com.psd.ExpenseManagementSystem.iterators.ProfileIdAndMonthFilteredExpenseIterator;
+import com.psd.ExpenseManagementSystem.bean.Friend;
 import com.psd.ExpenseManagementSystem.repository.ExpenseRepository;
 import com.psd.ExpenseManagementSystem.repository.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +22,18 @@ public class ExpenseService {
 	ProfileRepository userRepo;
 
 	@Autowired
-	private HttpServletRequest request;
+	public javax.servlet.http.HttpServletRequest request;
 
 	// Functionality for getting all the expenses created.
 	public List<Expense> getAllExpenses()
 	{
+		long profile_id = getProfileIdFromHeader();
 		List<Expense> expenses = new ArrayList<>();
 		expenseRepo.findAll().forEach(expenses::add);
-		return expenses;
+		List<Expense> filteredExpenses = expenses.stream()
+				.filter(expense -> expense.getProfile_id() == profile_id)
+				.collect(Collectors.toList());
+		return filteredExpenses;
 	}
 
 
