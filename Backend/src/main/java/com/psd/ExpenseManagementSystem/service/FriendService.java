@@ -2,6 +2,7 @@ package com.psd.ExpenseManagementSystem.service;
 
 import com.psd.ExpenseManagementSystem.bean.Expense;
 import com.psd.ExpenseManagementSystem.bean.Friend;
+import com.psd.ExpenseManagementSystem.bean.Profile;
 import com.psd.ExpenseManagementSystem.repository.FriendRepository;
 import com.psd.ExpenseManagementSystem.repository.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class FriendService {
@@ -38,14 +40,25 @@ public class FriendService {
     public void addFriend(Friend friend) {
         long profile_id = getProfileIdFromHeader();
         friend.setProfile_id(profile_id);
+        userRepo.findById(friend.getFriend_id()).ifPresent(profile -> {
+            String email = profile.getEmail();
+            String name = profile.getProfile_name();
+            friend.setEmail(email);
+            friend.setName(name);
+        });
         friendRepo.save(friend);
     }
 
     public List<Friend> getAllFriends()
     {
+        long profile_id = getProfileIdFromHeader();
         List<Friend> friends = new ArrayList<>();
         friendRepo.findAll().forEach(friends::add);
-        return friends;
+        List<Friend> filteredFriends = friends.stream()
+                .filter(friend -> friend.getProfile_id() == profile_id)
+                .collect(Collectors.toList());
+
+        return filteredFriends;
     }
 
     public Optional<Friend> getFriend(long id)

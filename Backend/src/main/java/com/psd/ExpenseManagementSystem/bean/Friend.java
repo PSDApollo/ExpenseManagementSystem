@@ -11,6 +11,16 @@ public class Friend {
     private  long id;
     private String name;
 
+    public long getFriend_id() {
+        return friend_id;
+    }
+
+    public void setFriend_id(long friend_id) {
+        this.friend_id = friend_id;
+    }
+
+    private long friend_id;
+
     private long profile_id;
 
     public long getId() {
@@ -51,11 +61,12 @@ public class Friend {
 
     }
 
-    public Friend(long id, String name, long profile_id, String email) {
+    public Friend(long id, String name, long profile_id, String email, long friend_id) {
         super();
         this.id = id;
         this.name = name;
         this.profile_id = profile_id;
         this.email = email;
+        this.friend_id = friend_id;
     }
 }
