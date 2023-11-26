@@ -20,10 +20,11 @@ function Login() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();  // Prevent the form from reloading the page.
+    e.preventDefault();  
 
-    fetch('https://00dc-2600-6c40-75f0-ffc0-415f-a6be-cacf-8e46.ngrok-free.app/login', {
+    fetch('https://c919-2600-6c40-75f0-82e0-75e2-b725-7087-47b7.ngrok-free.app/login', {
       method: 'POST',
+      origin: 'http://localhost:3000/',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -33,7 +34,7 @@ function Login() {
       if (response.ok) {
         console.log('Login Successful!');
         window.alert('Login Success');
-        return response.text(); // Get the response text
+        return response.text(); 
       } else {
         window.alert('Login failed');
         throw new Error('Login failed');

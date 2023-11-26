@@ -9,7 +9,7 @@ function ExpenseList() {
     const key = localStorage.getItem('myKey'); 
  
     if (key) {
-      fetch('https://00dc-2600-6c40-75f0-ffc0-415f-a6be-cacf-8e46.ngrok-free.app/expenses', {
+      fetch('https://c919-2600-6c40-75f0-82e0-75e2-b725-7087-47b7.ngrok-free.app/expenses', {
         method: 'GET',
         headers: {
           'Authorization': key, // Use the key as the Authorization header

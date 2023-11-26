@@ -26,9 +26,9 @@ function Signup() {
             profile_name: userInfo.profile_name
         };
     
-        fetch('https://00dc-2600-6c40-75f0-ffc0-415f-a6be-cacf-8e46.ngrok-free.app/register', {
+        fetch('https://c919-2600-6c40-75f0-82e0-75e2-b725-7087-47b7.ngrok-free.app/register', {
             method: 'POST',
-            // origin: 'http://localhost:3000/',
+            origin: 'http://localhost:3000/',
             headers: {
                 'Content-Type': 'application/json',
             },

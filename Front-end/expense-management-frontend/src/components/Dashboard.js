@@ -21,6 +21,9 @@ function Dashboard() {
               <Link to="/graphical-dashboard">
                   <button className="action-btn" data-testid='Graphical Dashboard'>Graphical Dashboard</button>
               </Link>
+              <Link to="/add-friends">
+              <button className="action-btn">Add Friends</button>
+          </Link>
           </div>
       </div>
   );
