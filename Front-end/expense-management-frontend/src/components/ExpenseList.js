@@ -12,7 +12,7 @@ function ExpenseList() {
       fetch('https://c919-2600-6c40-75f0-82e0-75e2-b725-7087-47b7.ngrok-free.app/expenses', {
         method: 'GET',
         headers: {
-          'Authorization': key, // Use the key as the Authorization header
+          'Authorization': key, 
         }
       })
       .then((response) => {
