@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
-
+import java.util.stream.Collectors;
 
 
 // This file is for implementing all the functionalities related to a profile
@@ -73,5 +73,12 @@ public class ProfileService {
     private UserProfileDto convertProfileToUserProfileDto(Profile profile) {
         // Map the properties from Profile to UserProfileDto
         return new UserProfileDto(profile.getId(), profile.getEmail(), profile.getProfile_name());
+    }
+
+    public List<UserProfileDto> getUsersByEmail(String email) {
+        return getAllUsers()
+                .stream()
+                .filter(userDto -> userDto.getEmail().equalsIgnoreCase(email))
+                .collect(Collectors.toList());
     }
 }

@@ -24,20 +24,32 @@ const BarChart = () => {
   const currentMonth = new Date().getMonth();
   const daysInMonth = new Date(new Date().getFullYear(), currentMonth + 1, 0).getDate();
   const randomColors = Array.from({ length: daysInMonth }, () => getRandomColor()); 
-  
-  useEffect(() => {
+  const [expensesArray, setExpensesArray] = useState([]);
 
+  useEffect(() => {
+    // const exp = getExpenseArrayFromAPI()
+    // console.log("in component" + exp)
+    const fetchData = async () => {
+      try {
+        const result = await getExpenseArrayFromAPI();
+        setExpensesArray(result);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        // Handle error, e.g., display an error message to the user
+      }
+    };
+
+    fetchData(); 
     if (chartRef.current) {
       if (chartInstanceRef.current) {
         //Destroys the existing canvas        
         chartInstanceRef.current.destroy();
       }
 
-
       const xLabelDays = Array.from({ length: daysInMonth }, (_, i) => `${i + 1}`);
 
-      const yExpenseDataset = generateExpenseMockData()
-
+      const yExpenseDataset = expensesArray
+      console.log(yExpenseDataset)
       setTotalExpenses(yExpenseDataset.reduce((total, expense) => total + expense, 0));
 
       getDayWithMostExpenses(yExpenseDataset, xLabelDays);

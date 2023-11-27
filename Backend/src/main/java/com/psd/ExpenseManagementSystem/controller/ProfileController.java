@@ -36,9 +36,12 @@ public class ProfileController {
     }
 
     @RequestMapping("/users")
-    public List<UserProfileDto> getAllExpenses()
-    {
-        return userService.getAllUsers();
+    public List<UserProfileDto> getAllUsers(@RequestParam(required = false) String email) {
+        if (email != null) {
+            return userService.getUsersByEmail(email);
+        } else {
+            return userService.getAllUsers();
+        }
     }
 
 
