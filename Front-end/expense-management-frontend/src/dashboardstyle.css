@@ -1,128 +1,103 @@
-/* Overall container styling */
-body{
-  background: linear-gradient(to bottom, #4b6cb7 0%, #182848 100%) !important;
-}
 .dashboard-container {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f7f7f7;
-  padding: 20px;
+  background: linear-gradient(to bottom right, #ffecd2, #fcb69f);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url('images/giorgio-trovato-WyxqQpyFNk8-unsplash.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* Header styling */
-header {
-  width: 100%;
-  background-color: #1a1a2e;
-  color: #e7e7de;
+  justify-content: center;
   padding: 20px;
-  text-align: center;
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px; 
+  margin-bottom: 2rem;
+}
+
+.dashboard-h1 {
+  font-size: 2.5rem;
+  color: #ff6600;
+  font-weight: bold;
   margin: 0;
-  font-size: 3rem;
-  font-weight: 600;
 }
 
-/* Logout button styling */
-.logout-btn {
-  background-color: #e94560;
-  color: #e7e7de;
+.dashboard-logout-btn {
+  background-color: #ff6600;
+  color: #ffffff;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
-  float: right;
-  margin-top: -40px;
-  margin-right: 20px;
-  transition: opacity 0.3s;
-}
-
-.logout-btn:hover {
-  opacity: 0.8;
-}
-
-/* Main content styling */
-.main-content {
-  text-align: center;
-  margin-top: 50px;
+  transition: background-color 0.3s ease;
   width: 100%;
 }
 
-h2 {
-  font-size: 2rem;
-  color: #16213e;
-  margin-bottom: 40px;
+.dashboard-logout-btn:hover {
+  background-color: #cc5200;
 }
 
-/* Buttons inside main content */
-.action-btn {
-  background-color: #0f3460;
-  color: #e7e7de;
-  border: none;
-  padding: 15px 30px;
-  margin: 10px;
+.dashboard-main-content {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+}
+
+.dashboard-welcome-box {
+  font-size: 2rem;
+  color: #ff6600;
+  margin-bottom: 2rem;
+}
+
+.dashboard-action-btn {
+  background-color: #ffffff;
+  color: #ff6600;
+  border: 2px solid #ff6600;
+  padding: 10px 20px;
+  margin: 10px 0;
   border-radius: 5px;
   font-size: 1rem;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: background-color 0.3s, color 0.3s;
+  width: calc(50% - 20px);
+  margin-bottom: 1rem;
+  display: inline-block; /* Align buttons in a row */
 }
 
-.action-btn:hover {
-  transform: translateY(-3px);
-}
-
-/* Link styling */
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 2rem;
-  }
-
-  .logout-btn {
-    padding: 8px 16px;
-    font-size: 0.9rem;
-    margin-top: -30px;
-  }
-
-  .main-content h2 {
-    font-size: 1.5rem;
-  }
-
-  .action-btn {
-    padding: 10px 20px;
-    margin: 5px;
-  }
-}
-
-.welcome-box {
-  background-color: #0f3460; /* Match the button color */
-  padding: 15px 30px;
-  margin: 20px 0;
-  border-radius: 5px;
-  display: block; /* To wrap the box around the content */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds depth */
-}
-
-/* Adjust the h2 inside the welcome-box for better visibility */
-.welcome-box h2 {
+.dashboard-action-btn:hover {
+  background-color: #ff6600;
   color: #ffffff;
-  margin: 0; /* Removes default margin */
-  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.7); /* Optional: adds readability */
 }
 
+@media (max-width: 768px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start; 
+  }
+
+  .dashboard-logout-btn {
+    align-self: flex-end; 
+    margin-top: 1rem; 
+  }
+
+  .dashboard-action-btn {
+    width: 100%; 
+    margin: 10px 0; 
+  }
+  .Toastify__toast-body {
+    display: flex;
+    flex-direction: column; /* Change flex direction to column */
+    align-items: flex-start; /* Align items to the start of the column */
+  }
+  
+  .Toastify__close-button {
+    margin-top: 0.5rem; /* Add margin-top to create space between the text and close button */
+  }
+}

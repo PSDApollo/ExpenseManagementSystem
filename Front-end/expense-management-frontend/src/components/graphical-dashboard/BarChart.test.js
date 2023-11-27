@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import BarChart from './BarChart';
 import React from 'react'
 import jsonData from './mockdata.json';
-import 'jest-canvas-mock';
+// import 'jest-canvas-mock';
 
 class ResizeObserver {
     observe() {}

@@ -28,14 +28,15 @@ function Signup() {
     
         fetch('http://localhost:9111/register', {
             method: 'POST',
-            origin: 'http://localhost:3000',
+            origin: 'http://localhost:3000/',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(payload),
         })
         .then((response) => {
-            if (response.ok) {
+            console.log(response);
+            if (response) {
                 console.log('User added!');
                 alert('User Registered Successfully.');
                 navigate('/');
@@ -45,8 +46,7 @@ function Signup() {
             }
         })
         .catch((error) => {
-            console.error('Error:', error);
-            alert('Signup failed. Please try again.');
+          console.error(error);
         });
     };
 

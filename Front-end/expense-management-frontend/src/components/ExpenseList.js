@@ -17,8 +17,8 @@ function ExpenseList() {
       fetch('http://localhost:9111/expenses', {
         method: 'GET',
         headers: {
-          'Authorization': key, // Use the key as the Authorization header
-        }
+          'Authorization': key,
+        },
       })
         .then((response) => {
           if (!response.ok) {

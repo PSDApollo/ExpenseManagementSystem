@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import '../loginstyle.css';
-import expenseManagementImage from '../images/naassom-azevedo-Q_Sei-TqSlc-unsplash.jpg';
+import expenseManagementImage from '../images/samsung-uk-n2FLiPRGaxk-unsplash.jpg';
 
 function Login() {
   const navigate = useNavigate();
@@ -20,10 +20,11 @@ function Login() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();  // Prevent the form from reloading the page.
+    e.preventDefault();  
 
     fetch('http://localhost:9111/login', {
       method: 'POST',
+      origin: 'http://localhost:3000/',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -33,7 +34,7 @@ function Login() {
       if (response.ok) {
         console.log('Login Successful!');
         window.alert('Login Success');
-        return response.text(); // Get the response text
+        return response.text(); 
       } else {
         window.alert('Login failed');
         throw new Error('Login failed');
@@ -52,32 +53,36 @@ function Login() {
 
   return (
     <div className="container">
+      <div className="login-form">
+        <h1 className="Login">Login to Apollo</h1>
+        <p className="description">Welcome back, you've been missed!</p>
+        <form onSubmit={handleSubmit}>
+          <div className="input-group">
+            <label htmlFor="email" className='username'>Username</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              placeholder="Your@gmail.com" 
+              onChange={handleInputChange} 
+            />
+          </div>
+          <div className="input-group">
+            <label htmlFor="password" className='password'>Password</label>
+            <input 
+              type="password" 
+              id="password" 
+              name="password" 
+              placeholder="Your Password" 
+              onChange={handleInputChange} 
+            />
+          </div>
+          <button type="submit">Log In</button>
+          <Link to="/signup" className="forgot-password">Don't have an account? Signup</Link>
+        </form>
+      </div>
       <div className="image-section">
         <img src={expenseManagementImage} alt="Expense Management" />
-      </div>
-      <div className="form-section">
-        <h1>Hello Apollo!</h1>
-        <p>Welcome back you've been missed!</p>
-        <form onSubmit={handleSubmit}>
-          <input 
-            type="text" 
-            className="username"
-            name="email" 
-            placeholder="Enter username" 
-            onChange={handleInputChange} 
-          />
-          <input 
-            type="password" 
-            className="password"
-            name="password" 
-            placeholder="Password" 
-            onChange={handleInputChange} 
-          />
-          <button type="submit">Sign In</button>
-          <div className="signup-text">
-            Don't have an account? <Link to="/signup">Signup</Link>
-          </div>
-        </form>
       </div>
     </div>
   );

@@ -16,6 +16,26 @@ const StyledLink = styled('a')({
   },
 });
 
+const BackToDashboardButton = styled(Button)({
+  marginTop: '20px',
+  width: '100%',
+  backgroundColor: '#1976D2',
+  color: '#fff',
+  '&:hover': {
+    backgroundColor: '#135589',
+  },
+});
+
+const SaveChangesButton = styled(Button)({
+  marginTop: '15px',
+  width: '100%',
+  backgroundColor: '#4CAF50',
+  color: '#fff',
+  '&:hover': {
+    backgroundColor: '#45a049',
+  },
+});
+
 const Profile = () => {
   const navigate = useNavigate();
 
@@ -78,15 +98,15 @@ const Profile = () => {
   };
 
   return (
-    <Paper elevation={3} style={{ maxWidth: '400px', margin: 'auto', padding: '20px' }}>
+    <Paper elevation={5} style={{ maxWidth: '600px', margin: 'auto', padding: '40px', borderRadius: '10px', backgroundColor: '#fff', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
       <Typography variant="h4" align="center" gutterBottom>
         {isEditing ? 'Edit Profile' : 'Profile Information'}
       </Typography>
       <StyledLink onClick={() => navigate('/dashboard')}>
-        <FaArrowLeft style={{ marginRight: '5px' }} />
+        <FaArrowLeft style={{ marginRight: '5px', fontSize: '1.2em' }} />
         Back to Dashboard
       </StyledLink>
-      <Box display="flex" flexDirection="column" alignItems="stretch">
+      <Box display="flex" flexDirection="column" alignItems="stretch" mt={4}>
         {isEditing ? (
           <form style={{ width: '100%' }}>
             <TextField
@@ -117,9 +137,9 @@ const Profile = () => {
               onChange={(e) => setUser({ ...user, expenseLimit: parseFloat(e.target.value) || 0 })}
               style={{ marginBottom: '10px' }}
             />
-            <Button variant="contained" onClick={handleProfileUpdate} style={{ marginTop: '15px', width: '100%' }}>
+            <SaveChangesButton variant="contained" onClick={handleProfileUpdate}>
               Save Changes
-            </Button>
+            </SaveChangesButton>
           </form>
         ) : (
           <>
@@ -132,9 +152,9 @@ const Profile = () => {
             <Typography variant="body1">
               <strong>Expense Limit:</strong> {user.expenseLimit}
             </Typography>
-            <Button variant="contained" onClick={() => setEditing(true)} style={{ marginTop: '15px', width: '100%' }}>
+            <BackToDashboardButton variant="contained" onClick={() => setEditing(true)}>
               Edit Profile
-            </Button>
+            </BackToDashboardButton>
           </>
         )}
       </Box>
