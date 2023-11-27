@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../addfriendsstyle.css';
 
 function AddFriends() {
   const [friends, setFriends] = useState([]);
@@ -56,20 +57,26 @@ function AddFriends() {
   };
 
   return (
-    <div>
-      <h1>Add Friends</h1>
-      <form onSubmit={handleSubmit}>
-        <select multiple onChange={handleSelectFriend} size="5">
+    <div className="add-friends-container">
+      <h1 className="add-friends-title">Add Friends</h1>
+      <form className="add-friends-form" onSubmit={handleSubmit}>
+        <select 
+          multiple 
+          className="add-friends-select"
+          onChange={handleSelectFriend} 
+          size="5"
+        >
           {friends.map(friend => (
             <option key={friend.id} value={friend.id}>
               {friend.profileName}
             </option>
           ))}
         </select>
-        <button type="submit">Submit Friends</button>
+        <button type="submit" className="add-friends-submit">Submit Friends</button>
       </form>
     </div>
   );
+
 }
 
 export default AddFriends;

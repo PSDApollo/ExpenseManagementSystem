@@ -1,0 +1,66 @@
+.add-friends-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom right, #ffecd2, #fcb69f);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  width: 700px;
+}
+
+.add-friends-title {
+  color: #ff6600;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.add-friends-form {
+  margin: 1rem auto;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.add-friends-select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 2px solid #ff6600;
+  border-radius: 4px;
+  background-color: #fff0e6;
+  color: #ff6600;
+  height: 150px; 
+}
+
+.add-friends-submit {
+  padding: 10px 20px;
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.add-friends-submit:hover {
+  background-color: #cc5200;
+}
+
+@media (max-width: 768px) {
+  .add-friends-form {
+    padding: 1rem;
+  }
+
+  .add-friends-title {
+    font-size: 2rem;
+  }
+}

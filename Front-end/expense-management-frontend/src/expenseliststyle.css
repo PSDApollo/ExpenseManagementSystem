@@ -1,32 +1,65 @@
-/* AddExpenseList.css */
-
-.expense-table {
-  width: 90%;
-  margin: 2em auto;
-  border-collapse: collapse;
-  text-align: left;
-}
-
-.expense-table th,
-.expense-table td {
-  padding: 0.5em 1em;
-  border: 1px solid #ddd;
-}
-
-.expense-table th {
-  background-color: #0044cc;
-  color: #fff;
-}
-
-.expense-table tbody tr:nth-child(odd) {
-  background-color: #f4f4f8;
-}
-
-.expense-table tbody tr:hover {
-  background-color: #ddf4ff;
-}
-
-h1 {
+.expense-list-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom right, #ffecd2, #fcb69f);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
   text-align: center;
-  color: black;
+  width: 700px;
+}
+
+.expense-list-title {
+  color: #ff6600;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.expense-list-table {
+  width: 80%;
+  margin: auto;
+  border-collapse: collapse;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.expense-list-table thead {
+  background-color: #ff6600;
+  color: #ffffff;
+}
+
+.expense-list-table th,
+.expense-list-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ff6600;
+}
+
+.expense-list-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.expense-list-table tbody tr:nth-child(even) {
+  background-color: #fff0e6;
+}
+
+.expense-list-table tbody tr:hover {
+  background-color: #ffe5d4;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .expense-list-table,
+  .expense-list-table th,
+  .expense-list-table td {
+    padding: 0.5rem;
+  }
+
+  .expense-list-title {
+    font-size: 2rem;
+  }
 }
