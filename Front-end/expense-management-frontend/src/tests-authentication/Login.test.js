@@ -7,9 +7,10 @@ test('renders Login component', () => {
   render(
     <BrowserRouter><Login /></BrowserRouter>
   );
-  expect(screen.getByPlaceholderText('Enter username')).toBeInTheDocument();
-  expect(screen.getByPlaceholderText('Password')).toBeInTheDocument();
-  expect(screen.getByText('Sign In')).toBeInTheDocument();
+  
+  expect(screen.getByPlaceholderText('Your@gmail.com')).toBeInTheDocument();
+  expect(screen.getByPlaceholderText('Your Password')).toBeInTheDocument();
+  expect(screen.getByText('Log In')).toBeInTheDocument();
 });
 
 // Test case 2: Form submission check for Login
@@ -19,16 +20,14 @@ test('allows the user to login successfully', () => {
   );
   
   // Simulate user typing an email and password
-  fireEvent.change(screen.getByPlaceholderText('Enter username'), {
+  fireEvent.change(screen.getByPlaceholderText('Your@gmail.com'), {
     target: { value: 'test@example.com' },
   });
-  fireEvent.change(screen.getByPlaceholderText('Password'), {
+  fireEvent.change(screen.getByPlaceholderText('Your Password'), {
     target: { value: 'password' },
   });
 
   // Simulate form submission
-  fireEvent.click(screen.getByText('Sign In'));
-  
-  // Assertions can be more specific based on what happens on form submit
-  // For example, checking if a function is called or if navigation occurs
+  fireEvent.click(screen.getByText('Log In'));
+
 });
