@@ -64,6 +64,7 @@ function AddExpense() {
     .catch((error) => {
       console.error(error);
     });
+
   };
 
   return (

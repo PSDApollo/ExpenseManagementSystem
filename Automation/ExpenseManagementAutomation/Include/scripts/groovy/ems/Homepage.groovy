@@ -42,8 +42,6 @@ import cucumber.api.java.en.Given
 import cucumber.api.java.en.Then
 import cucumber.api.java.en.When
 
-
-
 class Homepage {
 	@Given("I open the EMS Application")
 	public void i_open_the_EMS_Application() {

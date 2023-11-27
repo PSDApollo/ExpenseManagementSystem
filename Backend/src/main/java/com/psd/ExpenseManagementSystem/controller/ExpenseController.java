@@ -1,6 +1,7 @@
 package com.psd.ExpenseManagementSystem.controller;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import com.psd.ExpenseManagementSystem.bean.Expense;
@@ -56,6 +57,13 @@ public class ExpenseController {
 	public void DeleteExpense(@PathVariable Long id)
 	{
 		expenseService.deleteExpense(id);
+	}
+
+	// Defining a route for retrieving just expense amounts.
+	@RequestMapping(method = RequestMethod.GET, value="/dashboard")
+	public List<Map.Entry<Integer,Integer>> getFilteredExpensesForDashboard()
+	{
+		return expenseService.getFilteredExpensesForDashboard();
 	}
 
 }
