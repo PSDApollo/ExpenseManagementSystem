@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
@@ -7,18 +7,35 @@ import 'react-toastify/dist/ReactToastify.css';
 import '../dashboardstyle.css';
 
 function Dashboard() {
-  const [expenseLimitCrossed, setExpenseLimitCrossed] = useState(true);
-  const toastDisplayedRef = useRef(false);
+  const [expenseLimitCrossed, setExpenseLimitCrossed] = useState(false);
 
   useEffect(() => {
-    if (expenseLimitCrossed && !toastDisplayedRef.current) {
+    const fetchUserData = async () => {
+      try {
+        const response = await fetch('http://localhost:9111/expenses/limit?email=' + localStorage.getItem('email'), {
+          method: 'GET',
+          headers: {
+            'Authorization': localStorage.getItem('myKey')
+          }
+        });
+        const userData = await response.json();
+        setExpenseLimitCrossed(userData.result);
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+
+    fetchUserData();
+  }, []); // Empty dependency array to run only once when the component is mounted
+
+  useEffect(() => {
+    // Display toast when expense limit is crossed
+    if (expenseLimitCrossed) {
       toast.error('Expense limit crossed. Be careful!', { position: 'top-center' });
-      toastDisplayedRef.current = true;
 
       // Reset the flag after a delay
       setTimeout(() => {
         setExpenseLimitCrossed(false);
-        toastDisplayedRef.current = false;
       }, 1000); // Adjust the delay time as needed
     }
   }, [expenseLimitCrossed]);

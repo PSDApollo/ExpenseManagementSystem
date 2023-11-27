@@ -5,8 +5,9 @@ import com.psd.ExpenseManagementSystem.bean.Profile;
 import com.psd.ExpenseManagementSystem.repository.ExpenseRepository;
 import com.psd.ExpenseManagementSystem.repository.ProfileRepository;
 import com.psd.ExpenseManagementSystem.service.ExpenseService;
+import org.junit.Assert;
+import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -51,7 +52,7 @@ public class ExpenseServiceTest {
         verify(expenseRepo, times(1)).findAll();
 
         // Verify that the result is an empty list
-        assertEquals(0, result.size());
+        Assert.assertEquals(0, result.size());
     }
 
     @Test
@@ -66,7 +67,7 @@ public class ExpenseServiceTest {
         verify(expenseRepo, times(1)).findById(1L);
 
         // Verify that the result is present
-        assertEquals(true, result.isPresent());
+        Assert.assertEquals(true, result.isPresent());
     }
 
     @Test

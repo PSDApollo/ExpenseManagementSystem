@@ -33,7 +33,8 @@ public class ProfileService {
                 user.getId(),
                 user.getEmail(),
                 this.passwordEncoder.encode(user.getPassword()),
-                user.getProfile_name()
+                user.getProfile_name(),
+                1000L
         );
         // using save method we are saving the data to our database.
         userRepo.save(profile);
@@ -72,7 +73,7 @@ public class ProfileService {
 
     private UserProfileDto convertProfileToUserProfileDto(Profile profile) {
         // Map the properties from Profile to UserProfileDto
-        return new UserProfileDto(profile.getId(), profile.getEmail(), profile.getProfile_name());
+        return new UserProfileDto(profile.getId(), profile.getEmail(), profile.getProfile_name(), profile.getExpenseLimit());
     }
 
     public List<UserProfileDto> getUsersByEmail(String email) {
@@ -80,5 +81,28 @@ public class ProfileService {
                 .stream()
                 .filter(userDto -> userDto.getEmail().equalsIgnoreCase(email))
                 .collect(Collectors.toList());
+    }
+
+    public UserProfileDto getUserByProfileId(long profileId) {
+        return getAllUsers()
+                .stream()
+                .filter(userDto -> userDto.getId()==profileId)
+                .collect(Collectors.toList()).get(0);
+    }
+
+    // Modify the method to accept UserProfileDto
+    public ResponseEntity<String> updateProfileByEmail(UserProfileDto userProfileDto) {
+        Profile existingUser = userRepo.findByEmail(userProfileDto.getEmail());
+        if (existingUser != null) {
+            existingUser.setProfile_name(userProfileDto.getProfileName());
+            existingUser.setExpenseLimit((long)userProfileDto.getExpenseLimit());
+            System.out.println(existingUser.getExpenseLimit());
+            // Save the updated profile
+            userRepo.save(existingUser);
+
+            return ResponseEntity.ok("Profile updated successfully");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
+        }
     }
 }

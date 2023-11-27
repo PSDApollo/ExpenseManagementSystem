@@ -34,6 +34,9 @@ public class Profile {
 
     private String password;
 
+    @Column(name = "expense_limit")
+    private Long expenseLimit;
+
 
     public Profile() {
 
@@ -47,12 +50,13 @@ public class Profile {
         this.profile_name = profile_name;
     }
 
-    public Profile(long id, String email, String password, String profile_name) {
+    public Profile(long id, String email, String password, String profile_name,  Long expenseLimit) {
         super();
         this.id = id;
         this.email = email;
         this.password = password;
         this.profile_name = profile_name;
+        this.expenseLimit = expenseLimit;
     }
     public long getId() {
         return id;
@@ -61,4 +65,12 @@ public class Profile {
         this.id = id;
     }
 
+    // Getters and setters for the new field
+    public Long getExpenseLimit() {
+        return expenseLimit;
+    }
+
+    public void setExpenseLimit(long expenseLimit) {
+        this.expenseLimit = expenseLimit;
+    }
 }

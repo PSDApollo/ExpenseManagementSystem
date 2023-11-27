@@ -38,7 +38,7 @@ public class ProfileServiceTest {
     @Test
     public  void testRegisterUser(){
         // Creating a profile object
-        Profile profile = new Profile(1, "test@gmail.com", "password", "Test User");
+        Profile profile = new Profile(1, "test@gmail.com", "password", "Test User",1000L);
         // saving it in the test repo directly and getting the result
         when(userRepo.save(profile)).thenReturn(profile);
         // Verifying the result by using service class.
@@ -72,7 +72,7 @@ public class ProfileServiceTest {
     @Test
     public void testLoginUserIncorrectPassword() {
         // Create a mock user
-        Profile user = new Profile(1L, "user@example.com", "password", "John");
+        Profile user = new Profile(1L, "user@example.com", "password", "John",100L);
 
         // Mock the userRepo.findByEmail method
         when(userRepo.findByEmail("user@example.com")).thenReturn(user);
@@ -81,7 +81,7 @@ public class ProfileServiceTest {
         when(passwordEncoder.matches("wrongpassword", user.getPassword())).thenReturn(false);
 
         // Call the loginUser method with incorrect password
-        ResponseEntity<String> result = profileService.loginUser(new Profile(1L, "user@example.com", "wrongpassword", "John"));
+        ResponseEntity<String> result = profileService.loginUser(new Profile(1L, "user@example.com", "wrongpassword", "John", 100L));
 
         // Assertions
         assertEquals("Incorrect Email or password", result);

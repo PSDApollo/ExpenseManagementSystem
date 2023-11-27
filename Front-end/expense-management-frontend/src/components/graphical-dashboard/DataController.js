@@ -13,7 +13,7 @@ async function fetchExpensesFromAPI() {
 
   if (key) {
     try {
-      const response = await fetch('http://localhost:9111/dashboard', {
+      const response = await fetch('http://localhost:9111/expenses/dashboard', {
         method: 'GET',
         headers: {
           'Authorization': key, // Use the key as the Authorization header

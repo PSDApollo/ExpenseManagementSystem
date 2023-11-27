@@ -41,6 +41,7 @@ function Login() {
     })
     .then((key) => {
       localStorage.setItem('myKey', key); // Store the key in local storage
+      localStorage.setItem('email', credentials.email)
       console.log('Key received: ', key);
       navigate('/dashboard');
     })

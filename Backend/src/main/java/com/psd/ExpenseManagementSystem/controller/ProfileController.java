@@ -44,5 +44,9 @@ public class ProfileController {
         }
     }
 
-
+    // Add a route for updating profile data by email
+    @RequestMapping(method = RequestMethod.PUT, value = "/users/update")
+    public ResponseEntity<String> updateProfileByEmail(@RequestBody UserProfileDto userProfileDto) {
+        return userService.updateProfileByEmail(userProfileDto);
+    }
 }
