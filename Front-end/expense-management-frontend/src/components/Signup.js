@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import expenseManagementImage from '../images/pexels-cottonbro-studio-4629633.jpg';
+import expenseManagementImage from '../images/samsung-uk-n2FLiPRGaxk-unsplash.jpg';
 import '../signupstyles.css';
 
 function Signup() {
@@ -8,8 +8,10 @@ function Signup() {
     const [userInfo, setUserInfo] = useState({
         email: '',      
         password: '',
-        profile_name: ''
+        profile_name: '',
+        confirmPassword: '' 
     });
+    const [passwordError, setPasswordError] = useState(''); 
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -17,9 +19,21 @@ function Signup() {
             ...userInfo,
             [name]: value
         });
+
+        if (name === 'confirmPassword' || name === 'password') {
+            setPasswordError('');
+        }
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Check if passwords match
+        if (userInfo.password !== userInfo.confirmPassword) {
+            setPasswordError('Passwords do not match');
+            return;
+        }
+        setPasswordError('');
+
         const payload = {
             email: userInfo.email,
             password: userInfo.password,
@@ -36,7 +50,7 @@ function Signup() {
         })
         .then((response) => {
             console.log(response);
-            if (response) {
+            if (response.ok) {
                 console.log('User added!');
                 alert('User Registered Successfully.');
                 navigate('/');
@@ -82,10 +96,11 @@ function Signup() {
               <input 
                 type="password" 
                 className="password1"
-                name="password1" 
+                name="confirmPassword" 
                 placeholder="Retype Password" 
                 onChange={handleInputChange} 
               />
+              {passwordError && <p style={{ color: 'red' }}>{passwordError}</p>}
               <button type="submit" data-testid='signup-button'>Sign Up</button>
               <div className="signup-text">
                 Already have an account? <Link to="/">Login</Link>
@@ -93,7 +108,7 @@ function Signup() {
             </form>
           </div>
         </div>
-      );
-    }
+    );
+}
 
 export default Signup;

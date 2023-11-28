@@ -9,6 +9,9 @@ function AddFriends() {
   const authKey = localStorage.getItem('myKey');
 
   useEffect(() => {
+    document.body.style.background = "url('images/friendsimg.png') !important";
+    document.body.style.backgroundSize = "cover";
+
     fetch('http://localhost:9111/users', {
       method: 'GET',
       headers: {
@@ -18,6 +21,11 @@ function AddFriends() {
     .then(response => response.json())
     .then(data => setFriends(data))
     .catch(error => console.error('Error fetching friends:', error));
+
+    return () => {
+      document.body.style.background = null;
+      document.body.style.backgroundSize = null;
+    };
   }, [authKey]);
 
   const handleSelectFriend = (e) => {
@@ -40,7 +48,6 @@ function AddFriends() {
       })
     ))
     .then(responses => {
-      // Check if all responses are OK
       if (responses.every(response => response.ok)) {
         alert('All friends added successfully');
         navigate('/dashboard');
@@ -57,26 +64,29 @@ function AddFriends() {
   };
 
   return (
-    <div className="add-friends-container">
-      <h1 className="add-friends-title">Add Friends</h1>
-      <form className="add-friends-form" onSubmit={handleSubmit}>
-        <select 
-          multiple 
-          className="add-friends-select"
-          onChange={handleSelectFriend} 
-          size="5"
-        >
-          {friends.map(friend => (
-            <option key={friend.id} value={friend.id}>
-              {friend.profileName}
-            </option>
-          ))}
-        </select>
-        <button type="submit" className="add-friends-submit">Submit Friends</button>
-      </form>
+    <div className="page-container">
+      <div className="content-wrapper">
+        <div className="add-friends-container">
+          <h1 className="add-friends-title">Add Friends</h1>
+          <form className="add-friends-form" onSubmit={handleSubmit}>
+            <select 
+              multiple 
+              className="add-friends-select"
+              onChange={handleSelectFriend} 
+              size="5"
+            >
+              {friends.map(friend => (
+                <option key={friend.id} value={friend.id}>
+                  {friend.profileName}
+                </option>
+              ))}
+            </select>
+            <button type="submit" className="add-friends-submit">Submit Friends</button>
+          </form>
+        </div>
+      </div>
     </div>
   );
-
 }
 
 export default AddFriends;

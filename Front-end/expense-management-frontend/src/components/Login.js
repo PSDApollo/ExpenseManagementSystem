@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import '../loginstyle.css';
-import expenseManagementImage from '../images/samsung-uk-n2FLiPRGaxk-unsplash.jpg';
+import expenseManagementImage from '../images/LoginPage.png';
 
 function Login() {
   const navigate = useNavigate();
@@ -10,6 +10,7 @@ function Login() {
     email: '',
     password: ''
   });
+  const [emailError, setEmailError] = useState(''); 
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -17,10 +18,24 @@ function Login() {
       ...credentials,
       [name]: value
     });
+
+    // Email validation logic
+    if (name === 'email') {
+      if (value.includes('@')) {
+        setEmailError('');
+      } else {
+        setEmailError('Please enter a valid email');
+      }
+    }
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();  
+    e.preventDefault();
+    if (!credentials.email.includes('@')) {
+      setEmailError('Please enter a valid email');
+      return;
+    }
+    setEmailError('');
 
     fetch('http://localhost:9111/login', {
       method: 'POST',
@@ -52,36 +67,39 @@ function Login() {
   };
 
   return (
-    <div className="container">
+    <div className="login-container">
       <div className="login-form">
-        <h1 className="Login">Login to Apollo</h1>
-        <p className="description">Welcome back, you've been missed!</p>
+        <h1 className="login-title">Login to Apollo</h1>
+        <p className="login-description">Welcome back, you've been missed!</p>
         <form onSubmit={handleSubmit}>
-          <div className="input-group">
-            <label htmlFor="email" className='username'>Username</label>
+          <div className="login-input-group">
+            <label htmlFor="email" className='login-username'>Username</label>
             <input 
               type="email" 
               id="email" 
               name="email" 
               placeholder="Your@gmail.com" 
               onChange={handleInputChange} 
+              value={credentials.email}
             />
+            {emailError && <p style={{ color: 'red' }}>{emailError}</p>}
           </div>
-          <div className="input-group">
-            <label htmlFor="password" className='password'>Password</label>
+          <div className="login-input-group">
+            <label htmlFor="password" className='login-password'>Password</label>
             <input 
               type="password" 
               id="password" 
               name="password" 
               placeholder="Your Password" 
               onChange={handleInputChange} 
+              value={credentials.password}
             />
           </div>
-          <button type="submit">Log In</button>
-          <Link to="/signup" className="forgot-password">Don't have an account? Signup</Link>
+          <button type="submit" className="login-button">Log In</button>
+          <Link to="/signup" className="login-forgot-password">Don't have an account? Signup</Link>
         </form>
       </div>
-      <div className="image-section">
+      <div className="login-image-section">
         <img src={expenseManagementImage} alt="Expense Management" />
       </div>
     </div>

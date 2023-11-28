@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../addexpensestyle.css';
+import '../addexpensestyle.css'; 
 
 function AddExpense() {
   const navigate = useNavigate();
-
   const [expense, setExpense] = useState({
     name: '',
     description: '',
@@ -12,22 +11,22 @@ function AddExpense() {
     expense_date: '',
     friendId: '',
   });
-
-  const [friends, setFriends] = useState([]); // State to hold the friends data
+  const [friends, setFriends] = useState([]);
 
   useEffect(() => {
-    // Fetch the friends using the auth key
     const authKey = localStorage.getItem('myKey');
-    fetch('http://localhost:9111/friends', {
-      method: 'GET',
-      headers: {
-        'Authorization': authKey,
-      }
-    })
-    .then(response => response.json())
-    .then(data => setFriends(data)) // Update the friends state with the fetched data
-    .catch(error => console.error('Error fetching friends:', error));
-  }, []); // The empty array ensures this effect runs only once on component mount
+    if (authKey) {
+      fetch('http://localhost:9111/friends', {
+        method: 'GET',
+        headers: {
+          'Authorization': authKey,
+        }
+      })
+      .then(response => response.json())
+      .then(data => setFriends(data))
+      .catch(error => console.error('Error fetching friends:', error));
+    }
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -52,44 +51,79 @@ function AddExpense() {
       },
       body: JSON.stringify(newExpense),
     })
-    .then((response) => {
+    .then(response => {
       if (response.ok) {
-        console.log('Expense added successfully.');
         alert('Expense added successfully.');
         navigate('/dashboard');
       } else {
-        console.error('Failed to add expense.');
+        alert('Failed to add expense.');
       }
     })
-    .catch((error) => {
-      console.error(error);
+    .catch(error => {
+      console.error('Error:', error);
     });
+
   };
 
   return (
-    <div className='expense-add'>
-      <h2 className='team-name'>ALPHA</h2>
-      <h1>Add Expense</h1>
-      <form onSubmit={handleSubmit}>
-        <label>Name: <input type="text" name="name" onChange={handleInputChange} /></label><br />
-        <label>Description: <input type="text" name="description" onChange={handleInputChange} /></label><br />
-        <label>Amount: <input type="number" name="amount" onChange={handleInputChange} /></label><br />
-        <label>Date: <input type="date" name="expenseDate" onChange={handleInputChange} /></label><br />
-        <label>Friend:
+    <div className='add-expense-container'>
+      <form className='add-expense-form' onSubmit={handleSubmit}>
+        <h1 className='add-expense-heading'>Add Expense</h1>
+        <div className='add-expense-input-group'>
+          <input 
+            className='add-expense-input' 
+            type="text" 
+            name="name" 
+            placeholder="Name" 
+            value={expense.name}
+            onChange={handleInputChange} 
+          />
+        </div>
+        <div className='add-expense-input-group'>
+          <input 
+            className='add-expense-input' 
+            type="text" 
+            name="description" 
+            placeholder="Description" 
+            value={expense.description}
+            onChange={handleInputChange} 
+          />
+        </div>
+        <div className='add-expense-input-group'>
+          <input 
+            className='add-expense-input' 
+            type="number" 
+            name="amount" 
+            placeholder="Amount" 
+            value={expense.amount}
+            onChange={handleInputChange} 
+          />
+        </div>
+        <div className='add-expense-input-group'>
+          <input 
+            className='add-expense-input' 
+            type="date" 
+            name="expenseDate" 
+            value={expense.expenseDate}
+            onChange={handleInputChange} 
+          />
+        </div>
+        <div className='add-expense-input-group'>
           <select 
+            className='add-expense-select'
             name="friendId" 
             value={expense.friendId} 
             onChange={handleInputChange}
           >
             <option value="">Select a friend's email</option>
             {friends.map(friend => (
-              <option key={friend.id} value={friend.friend_id}>
+              <option key={friend.id} value={friend.id}>
                 {friend.email}
               </option>
             ))}
           </select>
-        </label><br />
-        <button type="submit">Add Expense</button>
+        </div>
+        <button className='add-expense-submit' type="submit">Submit</button>
       </form>
     </div>
   );
