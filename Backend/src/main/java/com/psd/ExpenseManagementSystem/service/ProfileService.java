@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
@@ -24,6 +25,21 @@ public class ProfileService {
     public ProfileRepository userRepo;
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private HttpServletRequest request;
+
+
+    public String getHeaders(){
+        return request.getHeader("Authorization");
+    }
+
+    public long getProfileIdFromHeader(){
+        byte[] decodedBytes = Base64.getDecoder().decode(getHeaders());
+        String decodedString = new String(decodedBytes);
+        decodedString = decodedString.split(":")[0];
+        return userRepo.findByEmail(decodedString).getId();
+    }
 
 
     // Functionality for creating a new profile.
@@ -66,7 +82,11 @@ public class ProfileService {
 
     public List<UserProfileDto> getAllUsers() {
         List<UserProfileDto> userDtos = new ArrayList<>();
-        userRepo.findAll().forEach(profile -> userDtos.add(convertProfileToUserProfileDto(profile)));
+        userRepo.findAll().forEach(profile -> {
+            if (profile.getId() != getProfileIdFromHeader()) {
+                userDtos.add(convertProfileToUserProfileDto(profile));
+            }
+        });
         return userDtos;
     }
 
