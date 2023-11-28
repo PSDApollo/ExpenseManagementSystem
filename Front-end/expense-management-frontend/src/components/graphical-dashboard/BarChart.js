@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { BarChartDesigner, getRandomColor, optionBuilder,dataSetBuilder } from './BarChartDesigner';
-import { generateExpenseMockData } from './DataController';
+import { generateExpenseMockData, getExpenseArrayFromAPI } from './DataController';
 
 
 const BarChart = () => {
@@ -12,6 +12,7 @@ const BarChart = () => {
   const currentMonth = new Date().toLocaleString('default', { month: 'long' });
     return `${currentMonth} Expenses`;
   };
+
 //Function to get day with most expenses
   function getDayWithMostExpenses(expenses, days) {
     const maxExpense = Math.max(...expenses);

@@ -1,14 +1,19 @@
 package com.psd.ExpenseManagementSystem.service;
 
+import com.psd.ExpenseManagementSystem.bean.Expense;
 import com.psd.ExpenseManagementSystem.bean.Profile;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.psd.ExpenseManagementSystem.repository.ProfileRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Base64;
+import java.util.List;
+
 
 
 // This file is for implementing all the functionalities related to a profile
@@ -57,5 +62,16 @@ public class ProfileService {
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
         }
+    }
+
+    public List<UserProfileDto> getAllUsers() {
+        List<UserProfileDto> userDtos = new ArrayList<>();
+        userRepo.findAll().forEach(profile -> userDtos.add(convertProfileToUserProfileDto(profile)));
+        return userDtos;
+    }
+
+    private UserProfileDto convertProfileToUserProfileDto(Profile profile) {
+        // Map the properties from Profile to UserProfileDto
+        return new UserProfileDto(profile.getId(), profile.getEmail(), profile.getProfile_name());
     }
 }

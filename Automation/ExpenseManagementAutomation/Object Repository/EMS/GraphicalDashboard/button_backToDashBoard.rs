@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>button_backToDashBoard</name>
+   <tag></tag>
+   <elementGuidId>7021e187-0cf8-4d26-b1f2-e1d3e57ba73e</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>XPATH</key>
+         <value>//div[@id='graphical-dashboard']/div/div/a/button</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value>button.action-btn</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>button</value>
+      <webElementGuid>81d3c1f4-86ed-455a-b240-95c3b16f52c2</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>action-btn</value>
+      <webElementGuid>1e2ab011-3bc2-44d8-8905-cc276df5e8e1</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>Back to Dashboard</value>
+      <webElementGuid>b080032a-dc8e-4124-92a0-34b1d9403694</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;graphical-dashboard&quot;)/div[1]/div[@class=&quot;barchart-container&quot;]/a[1]/button[@class=&quot;action-btn&quot;]</value>
+      <webElementGuid>c614f9d5-6b7e-4526-a0ba-dbb2a4e9bda9</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:idRelative</name>
+      <type>Main</type>
+      <value>//div[@id='graphical-dashboard']/div/div/a/button</value>
+      <webElementGuid>9b8c8545-1ebe-4227-9b5a-1d3fec10d2ca</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='November Expenses'])[1]/following::button[1]</value>
+      <webElementGuid>cb791a97-b0ae-411d-b53d-d247e5c1a55b</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Capture object:'])[1]/preceding::button[1]</value>
+      <webElementGuid>5cdcc20b-917c-4e5a-9e63-09f797abab2b</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Alt'])[1]/preceding::button[1]</value>
+      <webElementGuid>b408015a-98d4-48a7-895e-3ce858e54cab</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>//*/text()[normalize-space(.)='Back to Dashboard']/parent::*</value>
+      <webElementGuid>eba894a8-5879-41e3-b202-8649c3e3dd1f</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//button</value>
+      <webElementGuid>93f26c04-4a9e-4253-9eb8-418646bd1307</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//button[(text() = 'Back to Dashboard' or . = 'Back to Dashboard')]</value>
+      <webElementGuid>b8724a6f-81aa-44af-b6b8-fb2502bc765d</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>
