@@ -9,8 +9,33 @@
   text-align: center;
   padding: 20px;
   width: 700px;
+  margin: auto;
+  position: relative;
+}
+/* 
+body{
+  background: url('images/friendsimg.png') !important;
+  background-size: cover !important;
+} */
+
+.page-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
+.image-container {
+  flex: none; 
+  margin-right: 20px; 
+}
+
+.image-container img {
+  max-width: 100%; 
+  height: auto;
+  display: block;
+  border-radius: 15px;
+}
 .add-friends-title {
   color: #ff6600;
   font-size: 2.5rem;
@@ -64,3 +89,36 @@
     font-size: 2rem;
   }
 }
+
+.content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px; /* Adjust the gap as needed */
+}
+
+.image-container {
+  max-width: 300px; 
+  margin-left: 180px; 
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block; 
+  border-radius: 15px; 
+}
+
+.add-friends-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 700px; 
+  margin: auto;
+}
+
+
+

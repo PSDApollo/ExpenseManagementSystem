@@ -6,9 +6,11 @@ body, html {
   background: linear-gradient(to bottom right, #ffecd2, #fcb69f);
   color: #333;
   overflow: hidden;
+  background: url('images/marcus-lenk-62P0MnGIE9o-unsplash.jpg') !important;
+  background-size: cover !important;
 }
 
-.container {
+.login-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,7 +31,7 @@ body, html {
   border-left: 10px solid #ff6600; 
 }
 
-.login-form h1 {
+.login-form .login-title {
   font-family: 'Orbitron', sans-serif;
   font-size: 2rem;
   color: #5d647b;
@@ -37,59 +39,57 @@ body, html {
   text-align: left;
 }
 
-.input-group label {
+.login-input-group label {
   font-size: 0.9rem;
   color: #5d647b;
   margin-bottom: 0.5rem;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Default font for labels */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-
-.input-group input {
+.login-input-group input {
   width: calc(100% - 2rem); 
   padding: 1rem;
   border: 1px solid #dfe1e5;
-  border-radius: 0; /* Sharp corners for inputs */
+  border-radius: 0;
   font-size: 1rem;
 }
 
-.input-group input:focus {
+.login-input-group input:focus {
   outline: none;
   border-color: #ff6600;
   box-shadow: 0 0 0 2px rgba(255, 102, 0, 0.2);
 }
 
-button {
-  width: 80%; /* Adjust button width to match inputs */
+.login-button {
+  width: 80%;
   padding: 1rem;
   border: none;
   background-color: #ff6600;
   color: white;
   font-size: 1rem;
-  border-radius: 4px; /* Slightly rounded corners for the button */
+  border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
   margin-top: 1rem;
 }
 
-button:hover {
+.login-button:hover {
   background-color: #cc5200;
 }
 
-.forgot-password {
+.login-forgot-password {
   display: block;
-  margin-left: 70px;
   margin-top: 2rem;
   color: #ff6600;
   text-decoration: none;
   font-size: 0.9rem;
 }
 
-.forgot-password:hover {
+.login-forgot-password:hover {
   text-decoration: underline;
 }
 
-.image-section {
+.login-image-section {
   flex: 1;
   display: flex;
   justify-content: center;
@@ -97,14 +97,14 @@ button:hover {
   max-width: 600px;
 }
 
-.image-section img {
+.login-image-section img {
   width: 100%;
   height: auto;
   border-radius: 0;
 }
 
 @media (max-width: 768px) {
-  .container {
+  .login-container {
     flex-direction: column;
     justify-content: flex-start;
     padding: 10px;
@@ -116,47 +116,17 @@ button:hover {
     width: 90%;
     max-width: 90%;
     margin-top: 20px;
-    padding: 20px; 
+    padding: 20px;
     border-left: none;
   }
 
-  .image-section {
+  .login-image-section {
     order: 1;
     width: 100%;
     padding: 0;
   }
 
-  .image-section img {
+  .login-image-section img {
     max-height: 200px;
   }
-}
-
-/* .input-group label, .input-group input, button {
-  text-align: left; 
-}
-
-.input-group input, button {
-  width: 100%; 
-  padding: 10px; 
-} */
-
-
-.input-group input {
-  display: block;
-  width: 80% !important; /* Full width */
-  padding: 1rem !important;
-  border: 3px solid #dfe1e5 !important;
-  border-radius: 0 !important; /* Sharp corners for inputs */
-  font-size: 1rem !important;
-  box-sizing: border-box !important; /* Include padding and border in the element's total width and height */
-}
-
-.password
-{
-  margin-bottom: 1rem;
-}
-
-.username
-{
-  margin-bottom: 1rem;
 }

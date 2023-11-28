@@ -9,7 +9,7 @@ function ExpenseList() {
     const key = localStorage.getItem('myKey');
 
     if (key) {
-      fetch('https://<your-backend-url>/expenses', {
+      fetch('https://expenses', {
         method: 'GET',
         headers: {
           'Authorization': key,
