@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import '../expenseliststyle.css';
+import { Box, Typography, Select, MenuItem, Table, TableHead, TableBody, TableRow, TableCell } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 function ExpenseList() {
   const [expenses, setExpenses] = useState([]);
@@ -53,17 +56,17 @@ function ExpenseList() {
   };
 
   return (
-    <div>
-      <h1>Expense List</h1>
-      <div style={{ float: 'right', marginBottom: '10px' }}>
-        <label htmlFor="currency">Currency:</label>
-        <select id="currency" value={selectedCurrency} onChange={handleCurrencyChange}>
-          <option value="USD">USD</option>
-          <option value="EUR">EUR</option>
-          <option value="INR">INR</option>
-        </select>
-      </div>
-      <table className="expense-table">
+    <div className="expense-list-container">
+      <h1 className="expense-list-title">Expense List</h1>
+      <Box sx={{ float: 'right', marginBottom: '10px' }}>
+        <label htmlFor="currency">Currency:    </label>
+        <Select id="currency" value={selectedCurrency} onChange={handleCurrencyChange}>
+          <MenuItem value="USD">USD</MenuItem>
+          <MenuItem value="EUR">EUR</MenuItem>
+          <MenuItem value="INR">INR</MenuItem>
+        </Select>
+      </Box>
+      <table  className="expense-list-table">
         <thead>
           <tr>
             <th>Name</th>
@@ -83,6 +86,14 @@ function ExpenseList() {
           ))}
         </tbody>
       </table>
+      
+      <Box textAlign="center" mt={2}>
+          <Link to="/dashboard">
+            <button variant="contained" className="action-btn" style={{ width: '200px' }}>
+              Back to Dashboard
+            </button>
+          </Link>
+        </Box>
     </div>
   );
 }

@@ -1,20 +1,22 @@
 import React from 'react';
 import BarChart from './BarChart';
 import { Link } from 'react-router-dom';
+import { Box, Button } from '@mui/material';
 
 const GraphicalDashboard = () => {
   return (
-    <div id='graphical-dashboard'>
-    <div>
+    <Box p={3} id='graphical-dashboard'>
       <div className='barchart-container'>
-      <BarChart />
-      
-      <Link to="/dashboard">
-                  <button className="action-btn">Back to Dashboard</button>
-              </Link>
+        <BarChart />
+        <Box textAlign="center" mt={2}>
+          <Link to="/dashboard">
+            <button variant="contained" className="action-btn" style={{ width: '300px' }}>
+              Back to Dashboard
+            </button>
+          </Link>
+        </Box>
       </div>
-    </div>
-    </div>
+    </Box>
   );
 };
 

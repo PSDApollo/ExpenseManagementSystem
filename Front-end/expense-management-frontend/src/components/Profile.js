@@ -3,6 +3,7 @@ import { Box, Typography, Paper, Button, TextField } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import { styled } from '@mui/system';
+import { Link } from 'react-router-dom';
 
 const StyledLink = styled('a')({
   display: 'flex',
@@ -98,14 +99,15 @@ const Profile = () => {
   };
 
   return (
+    <div className="expense-list-container">
     <Paper elevation={5} style={{ maxWidth: '600px', margin: 'auto', padding: '40px', borderRadius: '10px', backgroundColor: '#fff', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
       <Typography variant="h4" align="center" gutterBottom>
         {isEditing ? 'Edit Profile' : 'Profile Information'}
       </Typography>
-      <StyledLink onClick={() => navigate('/dashboard')}>
+      {/* <StyledLink onClick={() => navigate('/dashboard')}>
         <FaArrowLeft style={{ marginRight: '5px', fontSize: '1.2em' }} />
         Back to Dashboard
-      </StyledLink>
+      </StyledLink> */}
       <Box display="flex" flexDirection="column" alignItems="stretch" mt={4}>
         {isEditing ? (
           <form style={{ width: '100%' }}>
@@ -158,7 +160,15 @@ const Profile = () => {
           </>
         )}
       </Box>
+      <Box textAlign="center" mt={2}>
+          <Link to="/dashboard">
+            <button variant="contained" className="action-btn" style={{ width: '200px' }}>
+              Back to Dashboard
+            </button>
+          </Link>
+        </Box>
     </Paper>
+    </div>
   );
 };
 

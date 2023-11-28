@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../addfriendsstyle.css';
+import { Link } from 'react-router-dom';
+import { Box, Button } from '@mui/material';
 
 function AddFriends() {
   const [friends, setFriends] = useState([]);
@@ -83,6 +85,15 @@ function AddFriends() {
             </select>
             <button type="submit" className="add-friends-submit">Submit Friends</button>
           </form>
+          
+      
+      <Box textAlign="center" mt={2}>
+          <Link to="/dashboard">
+            <button variant="contained" className="action-btn" style={{ width: '200px' }}>
+              Back to Dashboard
+            </button>
+          </Link>
+        </Box>
         </div>
       </div>
     </div>

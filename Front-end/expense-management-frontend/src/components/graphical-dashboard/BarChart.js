@@ -1,5 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { BarChartDesigner, getRandomColor, optionBuilder, dataSetBuilder } from './BarChartDesigner';
+import {
+  Box,
+  Typography,
+  Select,
+  MenuItem,
+  Paper,
+  Button,
+} from '@mui/material';
+import {
+  BarChartDesigner,
+  getRandomColor,
+  optionBuilder,
+  dataSetBuilder,
+} from './BarChartDesigner';
 import { getExpenseArrayFromAPI } from './DataController';
 
 const BarChart = () => {
@@ -13,12 +26,13 @@ const BarChart = () => {
     EUR: { symbol: '€', rate: 0.85 },
     INR: { symbol: '₹', rate: 73.5 },
   });
+
   const getCurrentMonthExpenses = () => {
     const currentMonth = new Date().toLocaleString('default', { month: 'long' });
     return `${currentMonth} Expenses`;
   };
 
-  // Function to get day with most expenses
+  // Function to get the day with the most expenses
   function getDayWithMostExpenses(expenses, days) {
     const maxExpense = Math.max(...expenses);
     const dayWithMaxExpense = days[expenses.indexOf(maxExpense)];
@@ -48,7 +62,7 @@ const BarChart = () => {
 
           const xLabelDays = Array.from({ length: daysInMonth }, (_, i) => `${i + 1}`);
 
-          // Convert expenses to selected currency
+          // Convert expenses to the selected currency
           const convertedExpenses = result.map((expense) => {
             // Perform currency conversion logic here based on selectedCurrency
             // For simplicity, let's assume USD is the base currency
@@ -85,20 +99,22 @@ const BarChart = () => {
   };
 
   return (
-    <div>
-      <div className="currency-dropdown">
-        <label htmlFor="currency">Currency:</label>
-        <select id="currency" value={selectedCurrency} onChange={handleCurrencyChange}>
-          <option value="USD">USD</option>
-          <option value="EUR">EUR</option>
-          <option value="INR">INR</option>
-        </select>
-      </div>
-      <h2>{getCurrentMonthExpenses()}</h2>
-      <p>Total Expenses: {getCurrencySymbol(selectedCurrency)}{totalExpenses.toFixed(2)}</p>
-      <p>{highestExpenseDay}</p>
-      <canvas role="img" id="dashboardCanvas" ref={chartRef} width="800" height="400"></canvas>
-    </div>
+    <Paper elevation={3} style={{ maxWidth: '800px', margin: 'auto', padding: '20px' }}>
+      <Box>
+        <div className="currency-dropdown">
+          <label htmlFor="currency">Currency:</label>
+          <Select id="currency" value={selectedCurrency} onChange={handleCurrencyChange}>
+            <MenuItem value="USD">USD</MenuItem>
+            <MenuItem value="EUR">EUR</MenuItem>
+            <MenuItem value="INR">INR</MenuItem>
+          </Select>
+        </div>
+        <Typography variant="h2">{getCurrentMonthExpenses()}</Typography>
+        <Typography variant="body1">Total Expenses: {getCurrencySymbol(selectedCurrency)}{totalExpenses.toFixed(2)}</Typography>
+        <Typography variant="body1">{highestExpenseDay}</Typography>
+        <canvas role="img" id="dashboardCanvas" ref={chartRef} width="800" height="400"></canvas>
+      </Box>
+    </Paper>
   );
 };
 
