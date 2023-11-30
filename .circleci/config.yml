@@ -42,4 +42,4 @@ workflows:
           filters:
             branches:
               only:
-                - EMS-24_Profile
+                - main
