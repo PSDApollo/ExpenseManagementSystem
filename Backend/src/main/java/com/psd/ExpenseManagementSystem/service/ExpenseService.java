@@ -25,6 +25,9 @@ public class ExpenseService {
 	@Autowired
 	public javax.servlet.http.HttpServletRequest request;
 
+	@Autowired
+	private ProfileService userService;
+
 	// Functionality for getting all the expenses created.
 	public List<Expense> getAllExpenses()
 	{
@@ -90,6 +93,17 @@ public class ExpenseService {
 			expenseAmounts.add(amount);
 		}
 		return expenseAmounts;
+	}
+
+	public Map<String,Boolean> isTotalExpenseGreaterThanLimit(String email){
+		Map<String,Boolean> result = new HashMap<>();
+		UserProfileDto user = userService.getUsersByEmail(email).get(0);
+		List<Map.Entry<Integer,Integer>> expenses = getFilteredExpensesForDashboard();
+		int totalExpenses = expenses.stream()
+				.map(Map.Entry::getValue)
+				.reduce(0, Integer::sum);
+		result.put("result", (totalExpenses> user.getExpenseLimit()));
+		return result;
 	}
 	
 }
