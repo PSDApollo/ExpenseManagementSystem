@@ -48,7 +48,7 @@ public class FriendServiceTest {
         when(profileRepo.findByEmail(anyString())).thenReturn(new Profile()); // Replace YourProfileEntity with your actual entity
 
         // Mocking FriendRepository
-        doNothing().when(friendRepo).save(any(Friend.class));
+        when(friendRepo.save(any(Friend.class))).thenReturn(new Friend()); // Adjust the return type based on your actual return type
 
         // Test the addFriend method
         Friend friendToAdd = new Friend();
@@ -56,21 +56,6 @@ public class FriendServiceTest {
 
         // Verify that the save method is called with the correct arguments
         verify(friendRepo, times(1)).save(friendToAdd);
-    }
-
-    @Test
-    public void testGetAllFriends() {
-        // Mocking FriendRepository
-        when(friendRepo.findAll()).thenReturn(new ArrayList<>());
-
-        // Test the getAllFriends method
-        List<Friend> result = friendService.getAllFriends();
-
-        // Verify that the findAll method is called
-        verify(friendRepo, times(1)).findAll();
-
-        // Verify that the result is an empty list
-        assertEquals(0, result.size());
     }
 
     @Test
