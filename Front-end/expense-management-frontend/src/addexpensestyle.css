@@ -1,75 +1,102 @@
-.add-expense-container {
+/* Base styling */
+body {
   font-family: 'Roboto', sans-serif;
-  /* background: linear-gradient(to bottom right, #ffecd2, #fcb69f); */
-  height: 100vh;
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  /* background-image: url(images/pexels-jakub-novacek-924824.jpg) !important;
+  background-size: cover !important; */
 }
 
-body{
-  background-image: url('./images/addexpensebackground.png') !important;
-  background-size: cover;
-}
-
-.add-expense-form {
-  background: #fff;
+/* Form container styling */
+.expense-add {
+  background: #ffffff;
   padding: 40px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   width: 90%;
-  max-width: 400px;
+  max-width: 500px;
+  /* background-image: url(images/mathieu-stern-1zO4O3Z0UJA-unsplash.jpg); */
+  background-size: cover;
+  
 }
 
-.add-expense-heading {
+/* Typography */
+h1 {
   color: #333;
   font-size: 24px;
   text-align: center;
   margin-bottom: 30px;
 }
 
-.add-expense-input-group {
-  margin-bottom: 20px;
+h2.team-name {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #555;
+  text-transform: uppercase;
 }
 
-.add-expense-input,
-.add-expense-select {
-  width: 100%;
-  padding: 10px;
+/* Form styling */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 15px;
+  color: #666;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+  /* padding: 10px; */
   border-radius: 4px;
-  border: 1px solid #ddd;
-  font-size: 16px;
+  font-size: 14px;
+  color: #333;
 }
 
-.add-expense-input:focus,
-.add-expense-select:focus {
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus {
   outline: none;
-  border-color: #ff6600;
+  /* border-color: #007bff; */
 }
 
-.add-expense-submit {
-  padding: 10px 20px;
-  width: 100%;
-  background-color: #ff6600;
+button {
+  padding: 15px;
+  background-color: #007bff;
   color: white;
   border: none;
   border-radius: 4px;
-  cursor: pointer;
   font-size: 16px;
+  cursor: pointer;
   margin-top: 20px;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
 }
 
-.add-expense-submit:hover {
-  background-color: #cc5200;
+button:hover {
+  background-color: #0056b3;
 }
 
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  .add-expense-form {
-    width: calc(100% - 40px);
+  .expense-add {
+    width: 100%;
+    max-width: 400px;
   }
 
-  .add-expense-heading {
+  h1 {
     font-size: 20px;
+  }
+
+  h2.team-name {
+    font-size: 16px;
   }
 }
