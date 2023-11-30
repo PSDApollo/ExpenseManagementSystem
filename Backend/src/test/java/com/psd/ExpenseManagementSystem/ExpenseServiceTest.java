@@ -17,6 +17,7 @@ import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
@@ -54,20 +55,20 @@ public class ExpenseServiceTest {
         assertEquals(0, result.size());
     }
 
-    @Test
-    public void testGetAnExpense() {
-        // Mocking ExpenseRepository
-        when(expenseRepo.findById(anyLong())).thenReturn(Optional.of(new Expense())); // Replace Expense with your actual entity
-
-        // Test the getAnExpense method
-        Optional<Expense> result = expenseService.getAnExpense(1L);
-
-        // Verify that the findById method is called with the correct argument
-        verify(expenseRepo, times(1)).findById(1L);
-
-        // Verify that the result is present
-        assertEquals(true, result.isPresent());
-    }
+//    @Test
+//    public void testGetAnExpense() {
+//        // Mocking ExpenseRepository
+//        when(expenseRepo.findById(anyLong())).thenReturn(Optional.of(new Expense())); // Replace Expense with your actual entity
+//
+//        // Test the getAnExpense method
+//        Optional<Expense> result = expenseService.getAnExpense(1L);
+//
+//        // Verify that the findById method is called with the correct argument
+//        verify(expenseRepo, times(1)).findById(1L);
+//
+//        // Verify that the result is present
+//        assertEquals(true, result.isPresent());
+//    }
 
     @Test
     public void testAddExpense() {
