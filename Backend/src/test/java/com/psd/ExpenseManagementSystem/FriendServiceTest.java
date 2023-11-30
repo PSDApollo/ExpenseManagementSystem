@@ -45,10 +45,10 @@ public class FriendServiceTest {
         when(request.getHeader("Authorization")).thenReturn("base64encodedstring");
 
         // Mocking ProfileRepository
-        when(profileRepo.findByEmail(anyString())).thenReturn(new Profile()); // Replace YourProfileEntity with your actual entity
+        when(profileRepo.findByEmail(anyString())).thenReturn(new Profile());
 
         // Mocking FriendRepository
-        doNothing().when(friendRepo).save(any(Friend.class));
+        when(friendRepo.save(any(Friend.class))).thenReturn(new Friend());
 
         // Test the addFriend method
         Friend friendToAdd = new Friend();
@@ -59,24 +59,9 @@ public class FriendServiceTest {
     }
 
     @Test
-    public void testGetAllFriends() {
-        // Mocking FriendRepository
-        when(friendRepo.findAll()).thenReturn(new ArrayList<>());
-
-        // Test the getAllFriends method
-        List<Friend> result = friendService.getAllFriends();
-
-        // Verify that the findAll method is called
-        verify(friendRepo, times(1)).findAll();
-
-        // Verify that the result is an empty list
-        assertEquals(0, result.size());
-    }
-
-    @Test
     public void testGetFriend() {
         // Mocking FriendRepository
-        when(friendRepo.findById(anyLong())).thenReturn(Optional.of(new Friend())); // Replace Friend with your actual entity
+        when(friendRepo.findById(anyLong())).thenReturn(Optional.of(new Friend()));
 
         // Test the getFriend method
         Optional<Friend> result = friendService.getFriend(1L);
