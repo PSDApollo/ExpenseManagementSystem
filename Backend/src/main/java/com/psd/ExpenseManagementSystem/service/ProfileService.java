@@ -91,13 +91,24 @@ public class ProfileService {
         return userDtos;
     }
 
+    public List<UserProfileDto> getAllUsersForProfile() {
+        List<UserProfileDto> userDtos = new ArrayList<>();
+        userRepo.findAll().forEach(profile -> {
+            userDtos.add(convertProfileToUserProfileDto(profile));
+
+        });
+        return userDtos;
+    }
+
     private UserProfileDto convertProfileToUserProfileDto(Profile profile) {
         // Map the properties from Profile to UserProfileDto
         return new UserProfileDto(profile.getId(), profile.getEmail(), profile.getProfile_name(), profile.getExpenseLimit());
     }
 
     public List<UserProfileDto> getUsersByEmail(String email) {
-        return getAllUsers()
+        System.out.println(email);
+        System.out.println(getAllUsersForProfile());
+        return getAllUsersForProfile()
                 .stream()
                 .filter(userDto -> userDto.getEmail().equalsIgnoreCase(email))
                 .collect(Collectors.toList());

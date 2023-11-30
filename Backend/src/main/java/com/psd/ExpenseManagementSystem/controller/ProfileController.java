@@ -37,6 +37,7 @@ public class ProfileController {
 
     @RequestMapping("/users")
     public List<UserProfileDto> getAllUsers(@RequestParam(required = false) String email) {
+//        System.out.print(email);
         if (email != null) {
             return userService.getUsersByEmail(email);
         } else {
