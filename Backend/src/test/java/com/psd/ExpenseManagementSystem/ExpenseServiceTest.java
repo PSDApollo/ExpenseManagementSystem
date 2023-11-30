@@ -58,7 +58,7 @@ public class ExpenseServiceTest {
     @Test
     public void testGetAnExpense() {
         // Mocking ExpenseRepository
-//        when(expenseRepo.findById(anyLong())).thenReturn(Optional.of(new Expense())); // Replace Expense with your actual entity
+//        when(expenseRepo.findById(anyLong())).thenReturn(Optional.of(new Expense()));
 //
 //        // Test the getAnExpense method
 //        Optional<Expense> result = expenseService.getAnExpense(1L);
@@ -76,10 +76,10 @@ public class ExpenseServiceTest {
         when(request.getHeader("Authorization")).thenReturn("base64encodedstring");
 
         // Mocking ProfileRepository
-        when(profileRepo.findByEmail(anyString())).thenReturn(new Profile()); // Replace YourProfileEntity with your actual entity
+        when(profileRepo.findByEmail(anyString())).thenReturn(new Profile());
 
         // Mocking ExpenseRepository
-        when(expenseRepo.save(any(Expense.class))).thenReturn(new Expense()); // You might need to adjust this based on your actual return type
+        when(expenseRepo.save(any(Expense.class))).thenReturn(new Expense());
 
         // Test the addExpense method
         Expense expenseToAdd = new Expense();
@@ -93,7 +93,7 @@ public class ExpenseServiceTest {
     @Test
     public void testUpdateExpense() {
         // Mocking ExpenseRepository
-        when(expenseRepo.save(any(Expense.class))).thenReturn(new Expense()); // You might need to adjust this based on your actual return type
+        when(expenseRepo.save(any(Expense.class))).thenReturn(new Expense());
 
         // Test the updateExpense method
         Expense expenseToUpdate = new Expense();
