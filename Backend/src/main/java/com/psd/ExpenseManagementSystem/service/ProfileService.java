@@ -97,14 +97,14 @@ public class ProfileService {
     }
 
     public List<UserProfileDto> getUsersByEmail(String email) {
-        return getAllUsers()
+        return getAllUsersForProfile()
                 .stream()
                 .filter(userDto -> userDto.getEmail().equalsIgnoreCase(email))
                 .collect(Collectors.toList());
     }
 
     public UserProfileDto getUserByProfileId(long profileId) {
-        return getAllUsers()
+        return getAllUsersForProfile()
                 .stream()
                 .filter(userDto -> userDto.getId()==profileId)
                 .collect(Collectors.toList()).get(0);
@@ -125,4 +125,14 @@ public class ProfileService {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
         }
     }
+
+    public List<UserProfileDto> getAllUsersForProfile() {
+        List<UserProfileDto> userDtos = new ArrayList<>();
+        userRepo.findAll().forEach(profile -> {
+            userDtos.add(convertProfileToUserProfileDto(profile));
+
+        });
+        return userDtos;
+    }
+
 }
