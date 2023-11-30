@@ -8,8 +8,7 @@
   justify-content: center;
   padding: 20px;
   text-align: center;
-  width: 100%; 
-  margin: auto;
+  width: 700px;
 }
 
 .expense-list-title {
@@ -20,20 +19,12 @@
 }
 
 .expense-list-table {
-  width: 60%; 
-  margin: 0 auto; 
+  width: 80%;
+  margin: auto;
   border-collapse: collapse;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   overflow: hidden;
-  opacity: 0;
-  animation: fadeInTable 0.5s ease-out forwards;
-}
-
-@keyframes fadeInTable {
-  to {
-    opacity: 1;
-  }
 }
 
 .expense-list-table thead {
@@ -46,10 +37,6 @@
   padding: 1rem;
   text-align: left;
   border-bottom: 1px solid #ff6600;
-}
-
-.expense-list-table tbody tr {
-  transition: background-color 0.3s;
 }
 
 .expense-list-table tbody tr:last-child td {
