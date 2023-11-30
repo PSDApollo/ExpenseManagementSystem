@@ -86,7 +86,7 @@ public class ProfileServiceTest {
     @Test
     public void testLoginUserIncorrectPassword() {
         // Create a mock user
-        Profile user = new Profile(1L, "user@example.com", "password", "John");
+        Profile user = new Profile(1L, "user@example.com", "password", "John",1000L);
 
         // Mock the userRepo.findByEmail method
         when(userRepo.findByEmail("user@example.com")).thenReturn(user);
@@ -95,7 +95,7 @@ public class ProfileServiceTest {
         when(passwordEncoder.matches("wrongpassword", user.getPassword())).thenReturn(false);
 
         // Call the loginUser method with incorrect password
-        ResponseEntity<String> responseEntity = profileService.loginUser(new Profile(1L, "user@example.com", "wrongpassword", "John"));
+        ResponseEntity<String> responseEntity = profileService.loginUser(new Profile(1L, "user@example.com", "wrongpassword", "John", 1000L));
 
         // Extract the String from the ResponseEntity
         String result = responseEntity.getBody();
