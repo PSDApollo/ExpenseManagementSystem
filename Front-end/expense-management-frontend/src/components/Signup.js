@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import expenseManagementImage from '../images/samsung-uk-n2FLiPRGaxk-unsplash.jpg';
+import expenseManagementImage from '../images/pexels-cottonbro-studio-4629633.jpg';
 import '../signupstyles.css';
 
 function Signup() {
@@ -8,10 +8,8 @@ function Signup() {
     const [userInfo, setUserInfo] = useState({
         email: '',      
         password: '',
-        profile_name: '',
-        confirmPassword: '' 
+        profile_name: ''
     });
-    const [passwordError, setPasswordError] = useState(''); 
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -19,28 +17,16 @@ function Signup() {
             ...userInfo,
             [name]: value
         });
-
-        if (name === 'confirmPassword' || name === 'password') {
-            setPasswordError('');
-        }
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Check if passwords match
-        if (userInfo.password !== userInfo.confirmPassword) {
-            setPasswordError('Passwords do not match');
-            return;
-        }
-        setPasswordError('');
-
+    const handleSubmit = () => {
         const payload = {
             email: userInfo.email,
             password: userInfo.password,
             profile_name: userInfo.profile_name
         };
     
-        fetch('http://localhost:9111/register', {
+        fetch('https://c919-2600-6c40-75f0-82e0-75e2-b725-7087-47b7.ngrok-free.app/register', {
             method: 'POST',
             origin: 'http://localhost:3000/',
             headers: {
@@ -50,7 +36,7 @@ function Signup() {
         })
         .then((response) => {
             console.log(response);
-            if (response.ok) {
+            if (response) {
                 console.log('User added!');
                 alert('User Registered Successfully.');
                 navigate('/');
@@ -96,11 +82,10 @@ function Signup() {
               <input 
                 type="password" 
                 className="password1"
-                name="confirmPassword" 
+                name="password1" 
                 placeholder="Retype Password" 
                 onChange={handleInputChange} 
               />
-              {passwordError && <p style={{ color: 'red' }}>{passwordError}</p>}
               <button type="submit" data-testid='signup-button'>Sign Up</button>
               <div className="signup-text">
                 Already have an account? <Link to="/">Login</Link>
@@ -108,7 +93,7 @@ function Signup() {
             </form>
           </div>
         </div>
-    );
-}
+      );
+    }
 
 export default Signup;

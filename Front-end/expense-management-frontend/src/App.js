@@ -9,7 +9,6 @@ import Signup from './components/Signup';
 import ExpenseList from './components/ExpenseList'; 
 import AddExpense from './components/AddExpense';   
 import GraphicalDashboard from './components/graphical-dashboard/GraphicalDashboard';
-import Profile from './components/Profile'; 
 
 function App() {
   return (
@@ -23,7 +22,6 @@ function App() {
           <Route path="/" element={<Login/>} />  
           <Route path="/add-friends" element={<AddFriends />} />
           <Route path="/graphical-dashboard" element={<GraphicalDashboard />} />
-          <Route path="/profile" element={<Profile />} />
         </Routes>
       </div>
     </Router>
