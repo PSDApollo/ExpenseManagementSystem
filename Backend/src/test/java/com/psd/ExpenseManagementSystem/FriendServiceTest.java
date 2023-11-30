@@ -45,10 +45,10 @@ public class FriendServiceTest {
         when(request.getHeader("Authorization")).thenReturn("base64encodedstring");
 
         // Mocking ProfileRepository
-        when(profileRepo.findByEmail(anyString())).thenReturn(new Profile()); // Replace YourProfileEntity with your actual entity
+        when(profileRepo.findByEmail(anyString())).thenReturn(new Profile());
 
         // Mocking FriendRepository
-        when(friendRepo.save(any(Friend.class))).thenReturn(new Friend()); // Adjust the return type based on your actual return type
+        when(friendRepo.save(any(Friend.class))).thenReturn(new Friend());
 
         // Test the addFriend method
         Friend friendToAdd = new Friend();
@@ -61,7 +61,7 @@ public class FriendServiceTest {
     @Test
     public void testGetFriend() {
         // Mocking FriendRepository
-        when(friendRepo.findById(anyLong())).thenReturn(Optional.of(new Friend())); // Replace Friend with your actual entity
+        when(friendRepo.findById(anyLong())).thenReturn(Optional.of(new Friend()));
 
         // Test the getFriend method
         Optional<Friend> result = friendService.getFriend(1L);
