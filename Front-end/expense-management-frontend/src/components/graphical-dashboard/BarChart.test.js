@@ -39,20 +39,14 @@ test('Verify Bar chart is rendered', () => {
 test('Verify Total expenses section is rendered', () => {
     window.ResizeObserver = ResizeObserver;
   render(<BarChart />);
-  const linkElement = screen.getByText(`Total Expenses: `, { exact: false })
+  const linkElement = screen.getByText(`Total Expenses: $${jsonData.reduce((total, expense) => total + expense, 0)}`)
   expect(linkElement).toBeInTheDocument();
 });
 
-test('Verify currency dropdown is rendered', () => {
-  window.ResizeObserver = ResizeObserver;
-render(<BarChart />);
-const linkElement = screen.getByText('Currency:');
-expect(linkElement).toBeInTheDocument();
-});
 
-test('Verify USD is default for currency dropdown', () => {
-  window.ResizeObserver = ResizeObserver;
-render(<BarChart />);
-const linkElement = screen.getByText('USD');
-expect(linkElement).toBeInTheDocument();
+test('Verify Most spent section is rendered', () => {
+    window.ResizeObserver = ResizeObserver;
+  render(<BarChart />);
+  const linkElement = screen.getByText('Most spent on: ', { exact: false })
+  expect(linkElement).toBeInTheDocument();
 });
