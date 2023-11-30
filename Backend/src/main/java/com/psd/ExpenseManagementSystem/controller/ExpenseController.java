@@ -6,11 +6,7 @@ import java.util.Optional;
 
 import com.psd.ExpenseManagementSystem.bean.Expense;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.psd.ExpenseManagementSystem.service.ExpenseService;
 
@@ -60,10 +56,15 @@ public class ExpenseController {
 	}
 
 	// Defining a route for retrieving just expense amounts.
-	@RequestMapping(method = RequestMethod.GET, value="/dashboard")
+	@RequestMapping(method = RequestMethod.GET, value="/expenses/dashboard")
 	public List<Map.Entry<Integer,Integer>> getFilteredExpensesForDashboard()
 	{
 		return expenseService.getFilteredExpensesForDashboard();
+	}
+	@RequestMapping(method = RequestMethod.GET, value="/expenses/limit")
+	public Map<String,Boolean> expenseLimit(@RequestParam(required = true) String email)
+	{
+		return expenseService.isTotalExpenseGreaterThanLimit(email);
 	}
 
 }

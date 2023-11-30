@@ -24,14 +24,27 @@ public class UserProfileDto {
     public void setProfileName(String profileName) {
         this.profileName = profileName;
     }
+    private Long expenseLimit;
+
+    // Getters and setters for the new field
+    public Long getExpenseLimit() {
+        return expenseLimit;
+    }
+
+    public void setExpenseLimit(Long expenseLimit) {
+        this.expenseLimit = expenseLimit;
+    }
 
     private Long id;
     private String email;
     private String profileName;
 
-    public UserProfileDto(Long id, String email, String profileName) {
+    public UserProfileDto(Long id, String email, String profileName, Long expenseLimit) {
         this.id = id;
         this.email = email;
         this.profileName = profileName;
+        this.expenseLimit = expenseLimit;
+    }
+    public UserProfileDto() {
     }
 }
