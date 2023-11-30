@@ -1,11 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import '../expenseliststyle.css'; 
+import '../expenseliststyle.css';
 
 function ExpenseList() {
-  const [expenses, setExpenses] = useState([]);
+  const [expenses, setExpenses] = useState([
+    {
+      id: 1,
+      name: 'Office Supplies',
+      description: 'Stationery items',
+      amount: 45.99,
+      expense_date: '2023-11-27',
+    },
+    {
+      id: 2,
+      name: 'Internet Bill',
+      description: 'Monthly subscription',
+      amount: 60.00,
+      expense_date: '2023-11-25',
+    },
+  ]);
 
   useEffect(() => {
-    // Fetching expenses from the backend
+    // Commented out the fetch logic for now as we're using dummy data
+    /*
     const key = localStorage.getItem('myKey');
 
     if (key) {
@@ -30,6 +46,7 @@ function ExpenseList() {
     } else {
       console.error('Key not found in local storage');
     }
+    */
   }, []);
 
   return (
