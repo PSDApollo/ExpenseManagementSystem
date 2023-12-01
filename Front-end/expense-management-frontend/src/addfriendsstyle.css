@@ -9,15 +9,40 @@
   text-align: center;
   padding: 20px;
   width: 700px;
+  margin: auto;
+  position: relative;
 }
-
+/*
+body{
+  background: url('images/friendsimg.png') !important;
+  background-size: cover !important;
+} */
+ 
+.page-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+ 
+.image-container {
+  flex: none;
+  margin-right: 20px;
+}
+ 
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 15px;
+}
 .add-friends-title {
   color: #ff6600;
   font-size: 2.5rem;
   margin-bottom: 1rem;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
-
+ 
 .add-friends-form {
   margin: 1rem auto;
   background-color: #ffffff;
@@ -27,7 +52,7 @@
   width: 100%;
   max-width: 400px;
 }
-
+ 
 .add-friends-select {
   width: 100%;
   padding: 0.5rem;
@@ -36,9 +61,9 @@
   border-radius: 4px;
   background-color: #fff0e6;
   color: #ff6600;
-  height: 150px; 
+  height: 150px;
 }
-
+ 
 .add-friends-submit {
   padding: 10px 20px;
   background-color: #ff6600;
@@ -50,17 +75,47 @@
   font-size: 1rem;
   width: 100%;
 }
-
+ 
 .add-friends-submit:hover {
   background-color: #cc5200;
 }
-
+ 
 @media (max-width: 768px) {
   .add-friends-form {
     padding: 1rem;
   }
-
+ 
   .add-friends-title {
     font-size: 2rem;
   }
+}
+ 
+.content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px; /* Adjust the gap as needed */
+}
+ 
+.image-container {
+  max-width: 300px;
+  margin-left: 180px;
+}
+ 
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 15px;
+}
+ 
+.add-friends-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 700px;
+  margin: auto;
 }
