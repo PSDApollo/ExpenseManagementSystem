@@ -21,6 +21,8 @@ jobs:
       - image: docker:20.10.9
     steps:
       - checkout
+      - setup_remote_docker:
+          version: 19.03.13
       - run:
           name: Build frontend Docker Image
           working_directory: Front-end
