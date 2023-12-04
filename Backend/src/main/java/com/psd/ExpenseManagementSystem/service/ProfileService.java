@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
-
+import java.util.stream.Collectors;
 
 
 // This file is for implementing all the functionalities related to a profile
@@ -49,7 +49,8 @@ public class ProfileService {
                 user.getId(),
                 user.getEmail(),
                 this.passwordEncoder.encode(user.getPassword()),
-                user.getProfile_name()
+                user.getProfile_name(),
+                1000L
         );
         // using save method we are saving the data to our database.
         userRepo.save(profile);
@@ -90,8 +91,49 @@ public class ProfileService {
         return userDtos;
     }
 
+    public List<UserProfileDto> getAllUsersForProfile() {
+        List<UserProfileDto> userDtos = new ArrayList<>();
+        userRepo.findAll().forEach(profile -> {
+            userDtos.add(convertProfileToUserProfileDto(profile));
+
+        });
+        return userDtos;
+    }
+
     private UserProfileDto convertProfileToUserProfileDto(Profile profile) {
         // Map the properties from Profile to UserProfileDto
-        return new UserProfileDto(profile.getId(), profile.getEmail(), profile.getProfile_name());
+        return new UserProfileDto(profile.getId(), profile.getEmail(), profile.getProfile_name(), profile.getExpenseLimit());
+    }
+
+    public List<UserProfileDto> getUsersByEmail(String email) {
+        System.out.println(email);
+        System.out.println(getAllUsersForProfile());
+        return getAllUsersForProfile()
+                .stream()
+                .filter(userDto -> userDto.getEmail().equalsIgnoreCase(email))
+                .collect(Collectors.toList());
+    }
+
+    public UserProfileDto getUserByProfileId(long profileId) {
+        return getAllUsers()
+                .stream()
+                .filter(userDto -> userDto.getId()==profileId)
+                .collect(Collectors.toList()).get(0);
+    }
+
+    // Modify the method to accept UserProfileDto
+    public ResponseEntity<String> updateProfileByEmail(UserProfileDto userProfileDto) {
+        Profile existingUser = userRepo.findByEmail(userProfileDto.getEmail());
+        if (existingUser != null) {
+            existingUser.setProfile_name(userProfileDto.getProfileName());
+            existingUser.setExpenseLimit((long)userProfileDto.getExpenseLimit());
+            System.out.println(existingUser.getExpenseLimit());
+            // Save the updated profile
+            userRepo.save(existingUser);
+
+            return ResponseEntity.ok("Profile updated successfully");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
+        }
     }
 }
