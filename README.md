@@ -22,7 +22,7 @@
 5. Run the command "npm start". Make sure your backend application is up and running.
 6. Application will open in the browser on port 3000.
 
-**Required Installations for Testing**: Katalon Studio, Postman
+**Required Installations for Testing**: Katalon Studio, Postman<br>
 1.Download Katalon Studio from the below URL<br>
   https://katalon.com/download<br>
 2. Download and install postman from the below URL<br>
