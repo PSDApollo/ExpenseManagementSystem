@@ -23,12 +23,12 @@
 6. Application will open in the browser on port 3000.
 
 **Required Installations for Testing**: Katalon Studio, Postman
-1.Download Katalon Studio from the below URL
-  https://katalon.com/download
-2. Download and install postman from the below URL
-  https://www.postman.com/downloads/
-3. Below is the postman collection for our application. 
-  https://sluedu-my.sharepoint.com/:u:/g/personal/saiteja_juluru_slu_edu/EY1L1qVYKSZFm7C6NN29XcUBxbQ4Y7lVHgkFCXVv2ByCNQ?e=f9cnKJ
+1.Download Katalon Studio from the below URL<br>
+  https://katalon.com/download<br>
+2. Download and install postman from the below URL<br>
+  https://www.postman.com/downloads/<br>
+3. Below is the postman collection for our application. <br>
+  https://sluedu-my.sharepoint.com/:u:/g/personal/saiteja_juluru_slu_edu/EY1L1qVYKSZFm7C6NN29XcUBxbQ4Y7lVHgkFCXVv2ByCNQ?e=f9cnKJ<br>
 
 
 **Steps to Run the application**:
