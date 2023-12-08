@@ -32,11 +32,11 @@
 
 
 **Steps to Run the application**:
-1. Before running the frontend part of the application, we need to make sure the server is up and running. For this purpose go to the Backend directory in the project and run **mvn spring-boot:run**
+1. Before running the frontend part of the application, we need to make sure the server is up and running. For this purpose go to the Backend directory in the project and run ```mvn spring-boot:run```
 2. The server will start running on port 9111
 3. Start the frontend server using npm
-   install npm: npm install
-   run the server: npm start
+   install npm: ```npm install```
+   run the server: ```npm start```
 4. This will run your application on port 3000
 
 
@@ -44,7 +44,7 @@
 1. Install docker desktop from the below URL
    https://www.docker.com/products/docker-desktop/
 2. Clone the project to your local using the command:
-   git clone https://github.com/PSDApollo/ExpenseManagementSystem.git
+   ```git clone https://github.com/PSDApollo/ExpenseManagementSystem.git```
 3. Start the docker desktop and then navigate to your project directory where docker-compose.yml is located
 4. Run ```docker-compose pull```. This will pull the updated docker image to your local and get all the latest changes.
 5. Run ```docker-compose up```. This will run the application on port 3000.
