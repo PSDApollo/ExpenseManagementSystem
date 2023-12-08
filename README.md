@@ -34,9 +34,9 @@
 **Steps to Run the application**:
 1. Before running the frontend part of the application, we need to make sure the server is up and running. For this purpose go to the Backend directory in the project and run ```mvn spring-boot:run```
 2. The server will start running on port 9111
-3. Start the frontend server using npm
-   install npm: ```npm install```
-   run the server: ```npm start```
+3. Start the frontend server using npm<br>
+   <br>install npm: ```npm install```
+   <br>run the server: ```npm start```
 4. This will run your application on port 3000
 
 
