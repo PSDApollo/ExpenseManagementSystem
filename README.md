@@ -1,6 +1,6 @@
 # ExpenseManagementSystem
 
-**Overview of the project**
+**Overview of the project:** <br>
 The application is an expense management system for individuals and groups of people. The software will be similar to expense managing apps like Splitwise, Money Manager, 
 and SettleUp, which millions of people around the world use to organize group bills for households, trips, and more. But the system we are developing will allow users to input their expenses and split the costs among the group members and enables to share profits among them and provide a graphical representation of the expenses for easy tracking and analysis as well, which are not available in other applications. The splitting of expenses will be done automatically based on predefined rules. The system will simplify the process of splitting expenses and reduce the potential for misunderstandings and conflicts among group members. The software will be usefulfor groups of friends who dine out together, roommates sharing living expenses, or colleagues sharing travel expenses. The system will streamline the process of splitting expenses, reduce administrative effort, and eliminate the need for manual calculations.
 
